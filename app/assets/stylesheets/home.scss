@@ -25,8 +25,6 @@ a {
 
 
 
-
-
 /* 共通レイアウト ================================ */
 $b-shadow: rgba(0,0,0,0.4);
 
@@ -48,11 +46,15 @@ $b-shadow: rgba(0,0,0,0.4);
 .jumbotron { 
  background:url(/matt-duncan-IUY_3DvM__w-unsplash.jpg)center no-repeat; background-size: cover;
  height: 100vh;
+ width: 100vw;
  padding: 0;
+ position: absolute;
+ top: 0;
+ z-index: -1;
 }
 .row {
  color: #fff;
- margin-top: 200px;
+ padding-top: 250px;
 }
 .text-left {
  p {
@@ -62,7 +64,7 @@ $b-shadow: rgba(0,0,0,0.4);
 // SignupForm
 .form { 
  border: 1px solid #fff;
- padding: 20px 50px;
+ padding: 10px 30px;
  background-color: $b-shadow;
  .form-group {
   padding-top: 10px;
