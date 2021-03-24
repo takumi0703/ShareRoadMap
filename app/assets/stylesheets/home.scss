@@ -5,22 +5,70 @@
 @import "bootstrap";
 
 
-/* 共通レイアウト ================================ */
+/* reset ================================ */
 body {
  font-family: serif;
+ line-height: 1.7;
+ letter-spacing: 1px;
 }
+ul, li {
+ list-style-type: none;
+ padding: 0;
+ margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+ margin: 0;
+}
+a {
+ color: #fff;
+}
+
+
+
+
+
+/* 共通レイアウト ================================ */
 
 
 /* header ================================ */
 .header { 
  display: flex;
  justify-content: space-between;
-}
-/* SignupPage ================================ */
-.jumbotron { 
- background:url(../images/matt-duncan-IUY_3DvM__w-unsplash.jpg);
+ color: #fff;
+ padding: 5px 10px;
+ background-color: rgba(0,0,0,0.4);
+ .logo {
+  font-size: 24px;
+  margin-bottom: 0;
+  padding-top: 5px;
+ }
 }
 
+/* SignupPage ================================ */
+.jumbotron { 
+ background:url(/matt-duncan-IUY_3DvM__w-unsplash.jpg)center no-repeat; background-size: cover;
+ height: 100vh;
+ padding: 0;
+}
 .row {
- margin-top: 150px;
+ color: #fff;
+ margin-top: 200px;
+}
+.text-left {
+ p {
+  font-size: 20px;
+ }
+}
+// SignupForm
+.form { 
+ border: 1px solid #fff;
+ padding: 20px 50px;
+ background-color: rgba(0,0,0,0.4);
+ .btn-primary {
+  background-color: #fff;
+  color: #000;
+  border: 0;
+  display: block;
+  margin: 0 0 0 auto;
+ }
 }
