@@ -2,9 +2,9 @@
   <div class="row user-show">
     <div class="col-md-4">
      <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="ユーザーのアイコン画像">
+      <img src="<%= "/#{@user.image_icon}" %>" class="card-img-top" alt="ユーザーのアイコン画像">
       <div class="card-body">
-       <h5 class="card-title">ユーザー名</h5>
+       <h5 class="card-title"><%= @user.name %></h5>
        <button href="#" class="btn btn-primary">編集する</button>
       </div>
     </div>
