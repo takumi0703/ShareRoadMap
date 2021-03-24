@@ -52,7 +52,7 @@ $b-shadow: rgba(0,0,0,0.4);
  top: 0;
  z-index: -1;
 }
-.row {
+.fv-content {
  color: #fff;
  padding-top: 250px;
 }
@@ -69,11 +69,26 @@ $b-shadow: rgba(0,0,0,0.4);
  .form-group {
   padding-top: 10px;
  }
- .btn-primary {
-  background-color: #fff;
-  color: #000;
-  border: 0;
-  display: block;
-  margin: 0 0 0 auto;
+}
+.btn-primary {
+ background-color: #fff;
+ color: #000;
+ border: 1px solid #000;
+ display: block;
+ margin: 0 0 0 auto;
+}
+
+/* User_Show_Page ================================ */
+.user-show {
+ align-items: center;
+ text-align: center;
+ height: 80vh;
+}
+.show-text {
+ h2 {
+  font-size: 24px;
+  padding-bottom: 20px;
  }
 }
+
+ 
