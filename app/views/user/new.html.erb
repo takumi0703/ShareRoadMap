@@ -2,23 +2,25 @@
     <div class="container">
     <div class="row fv-content">
         <div class="col-md-6 text-left">
-        <h3>ShareRoadMapへようこそ！</h3>
-        <p>目標へのロードマップを計画・作成してシェアしよう！ <br> 情報を共有して目標への最短距離を見つけ出そう！！</p>
+        <h3>ShareRoadMapへようこそ</h3>
+        <p>目標へのロードマップを作成してシェアしよう！ <br> 情報を共有して目標への最短距離を見つけ出そう！！</p>
         </div>
         <div class="col-md-6">
-        <form class="form">
-        <h4>新規登録</h4>
-            <div class="form-group">
-                <input type="name" class="form-control" placeholder="ユーザー名">
-            </div>
-            <div class="form-group">
-                <input type="email" class="form-control"aria-describedby="emailHelp" placeholder="メールアドレス">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" placeholder="パスワード">
-            </div>
-            <button type="submit" class="btn btn-primary">登録</button>
-        </form>
+            <%= form_tag("/users/create",method: :post) do %>
+                <form class="form">
+                    <h4>新規登録</h4>
+                    <div class="form-group">
+                        <input type="name" name="name" class="form-control" value="<%= @user.name %>">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control"aria-describedby="emailHelp" value="<%= @user.email %>">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" value="<%= @user.password %>">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="登録"></input>
+                </form>
+            <% end %>
         </div>
     </div>
     </div>
