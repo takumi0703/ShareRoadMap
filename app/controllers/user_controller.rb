@@ -10,8 +10,12 @@ class UserController < ApplicationController
       password: params[:password],
       image_icon: "mateo-avila-chinchilla-x_8oJhYU31k-unsplash.jpg"
     )
-    @user.save
-    redirect_to("/users/#{@user.id}")
+    if @user.save
+      flash[:notice] = "登録できたよ！"
+      redirect_to("/users/#{@user.id}")
+    else
+      render("user/new")
+    end
   end
 
   def login

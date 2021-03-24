@@ -5,17 +5,23 @@
         <h3>ShareRoadMapへようこそ</h3>
         <p>目標へのロードマップを作成してシェアしよう！ <br> 情報を共有して目標への最短距離を見つけ出そう！！</p>
         </div>
-        <div class="col-md-6">
-            <%= form_tag("/users/create",method: :post) do %>
+        <div class="col-md-6 form-text">
+            <%= form_tag("/users/create") do  %>
+                <% @user.errors.full_messages.each do |message| %>   
+                    <%= message %>
+                    <% end %>
                 <form class="form">
                     <h4>新規登録</h4>
                     <div class="form-group">
+                        <label class="form-label">ユーザー名</label>
                         <input type="name" name="name" class="form-control" value="<%= @user.name %>">
                     </div>
                     <div class="form-group">
+                        <label class="form-label">メールアドレス</label>
                         <input type="email" name="email" class="form-control"aria-describedby="emailHelp" value="<%= @user.email %>">
                     </div>
                     <div class="form-group">
+                    　   <label for="exampleInputPassword1" class="form-label">パスワード</label>
                         <input type="password" name="password" class="form-control" value="<%= @user.password %>">
                     </div>
                     <input type="submit" class="btn btn-primary" value="登録"></input>
