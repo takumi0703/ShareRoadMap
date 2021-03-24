@@ -4,5 +4,6 @@ class UserController < ApplicationController
   end
   def login
   end
+  def show
   
 end
