@@ -1,3 +1,26 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+// Bootstrap読み込み
+@import "bootstrap";
+
+
+/* 共通レイアウト ================================ */
+body {
+ font-family: serif;
+}
+
+
+/* header ================================ */
+.header { 
+ display: flex;
+ justify-content: space-between;
+}
+/* SignupPage ================================ */
+.jumbotron { 
+ background:url(../images/matt-duncan-IUY_3DvM__w-unsplash.jpg);
+}
+
+.row {
+ margin-top: 150px;
+}
