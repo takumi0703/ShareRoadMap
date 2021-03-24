@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #ユーザー登録・ログイン
-  get '/' => "user#signup"
+  get '/' => "user#new"
   get 'login' => "user#login"
   #ユーザー詳細ページ
   get 'users/show' => "user#show"
