@@ -12,16 +12,45 @@
 
   <body>
     <header class="header">
-      <h2 class="logo">ShareRoadMap</h2>
-      <ul class="nav justify-content-end">
-          <li class="nav-item">
-           <a class="nav-link"  href="/">新規登録</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link" href="/login">ログイン</a>
-          </li>
-      </ul>
-    </header>
+      <% if @current_user %>
+       <h2 class="logo">ShareRoadMap</h2>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+             <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
+            </li>
+            <li class="nav-item">
+             <%= link_to("投稿一覧", "/login") %>
+            </li>
+            <li class="nav-item">
+             <%= link_to("ログアウト", "/logout") %>
+            </li>
+        </ul>
+      <% else %>
+        <h2 class="logo">ShareRoadMap</h2>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+             <%= link_to("新規登録", "/") %>
+            </li>
+            <li class="nav-item">
+            <%= link_to("ログイン", "/login") %>
+            </li>
+        </ul>
+      <% end %>
+      </header>
+      <% if flash[:alert] %>
+        <div class="alert">
+          <% flash.each do |alert, message| %>
+            <%= message %>
+          <% end %>
+        </div>
+      <% end %>
+      <% if flash[:success] %>
+        <div class="success">
+          <% flash.each do |success, message| %>
+            <%= message %>
+          <% end %>
+        </div>
+      <% end %>
     <%= yield %>
   </body>
 </html>
