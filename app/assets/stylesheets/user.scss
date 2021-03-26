@@ -28,6 +28,7 @@ a {
 /* 共通レイアウト ================================ */
 $b-shadow: rgba(0,0,0,0.4);
 
+
 /* header ================================ */
 .header { 
  display: flex;
@@ -40,6 +41,24 @@ $b-shadow: rgba(0,0,0,0.4);
   margin-bottom: 0;
   padding-top: 5px;
  }
+ .nav-item {
+  padding: 5px 10px 0 0;
+ }
+}
+
+/* Flash ================================ */
+.alert {
+ text-align: center;
+ color: #fff;
+ background-color: rgb(247, 86, 86);
+ font-size: 16px;
+ line-height: 5px;
+}
+.success {
+ text-align: center;
+ color: #fff;
+ background-color: skyblue;
+ font-size: 16px;
 }
 
 /* SignupPage ================================ */
@@ -61,6 +80,7 @@ $b-shadow: rgba(0,0,0,0.4);
   font-size: 20px;
  }
 }
+
 // SignupForm
 .form-text { 
  border: 1px solid #fff;
