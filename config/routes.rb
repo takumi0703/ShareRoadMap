@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'users/create' => "user#create"
   get  'login' => "user#login_form"
   post 'login' => "user#login"
+  get  'logout' => "user#destroy"
   get  'users/:id' => "user#show"
 
 
