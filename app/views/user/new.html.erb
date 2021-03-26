@@ -9,7 +9,7 @@
             <%= form_for(@user,url: {action:"create"}) do  %>
                 <% @user.errors.full_messages.each do |message| %>   
                     <%= message %>
-                    <% end %>
+                <% end %>
                 <form class="form">
                     <h4>新規登録</h4>
                     <div class="form-group">
