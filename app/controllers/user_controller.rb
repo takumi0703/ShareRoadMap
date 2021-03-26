@@ -13,6 +13,7 @@ class UserController < ApplicationController
     )
     if @user.save
       session[:user_id] = @user.id
+      flash[:success] = "新規登録が完了しました！"
       redirect_to("/users/#{@user.id}")
     else
       render("user/new")
@@ -37,8 +38,8 @@ class UserController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    flash[:success] = "ログアウトしました"
     redirect_to("/login")
-
   end
 
   def show
