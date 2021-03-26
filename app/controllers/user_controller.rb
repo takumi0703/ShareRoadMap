@@ -17,8 +17,11 @@ class UserController < ApplicationController
       render("user/new")
     end
   end
+  def login_form
+  end
 
   def login
+    @user = User.find_by(email: params[:email])
   end
   def show
     @user = User.find_by(id: params[:id])

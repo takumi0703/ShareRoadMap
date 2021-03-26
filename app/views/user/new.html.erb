@@ -6,7 +6,7 @@
         <p>目標へのロードマップを作成してシェアしよう！ <br> 情報を共有して目標への最短距離を見つけ出そう！！</p>
         </div>
         <div class="col-md-6 form-text">
-            <%= form_tag("/users/create") do  %>
+            <%= form_for(@user,url: {action:"create"}) do  %>
                 <% @user.errors.full_messages.each do |message| %>   
                     <%= message %>
                     <% end %>
