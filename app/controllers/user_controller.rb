@@ -11,7 +11,6 @@ class UserController < ApplicationController
       image_icon: "mateo-avila-chinchilla-x_8oJhYU31k-unsplash.jpg"
     )
     if @user.save
-      flash[:notice] = "登録できたよ！"
       redirect_to("/users/#{@user.id}")
     else
       render("user/new")
@@ -22,6 +21,15 @@ class UserController < ApplicationController
 
   def login
     @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
+      redirect_to("/users/#{@user.id}")  
+    else
+      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @email = params[:email]
+      @password = params[:password]
+      render("user/login_form")  
+    end
+
   end
   def show
     @user = User.find_by(id: params[:id])
