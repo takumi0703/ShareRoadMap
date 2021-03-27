@@ -61,6 +61,7 @@ class UserController < ApplicationController
       #フォルダに保存
       File.binwrite("public/image/#{@user.image_icon}",File.read(image))
     end
+
     if @user.save
      flash[:success] ="ユーザー情報を編集できました！"
      redirect_to("/users/#{@user.id}")
