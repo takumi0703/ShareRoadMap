@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   get  '/' => "user#new"
   post 'users/create' => "user#create"
+
   get  'login' => "user#login_form"
   post 'login' => "user#login"
   get  'logout' => "user#destroy"
+
   get  'users/:id' => "user#show"
+  get 'users/:id/edit' => "user#edit"
+  post 'users/:id/update' => "user#update"
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

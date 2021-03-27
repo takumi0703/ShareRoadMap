@@ -45,4 +45,29 @@ class UserController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
   end
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    @user.name = params[:name]
+    @user.email = params[:email]
+
+    if params[:image_icon]
+      #名前の保存
+      @user.image_icon = "#{@user.id}.jpg"
+      image = params[:image_icon]
+      #フォルダに保存
+      File.binwrite("public/image/#{@user.image_icon}",File.read(image))
+    end
+    if @user.save
+     flash[:success] ="ユーザー情報を編集できました！"
+     redirect_to("/users/#{@user.id}")
+    else
+      flash.now[:alert] ="編集に誤りがあります"
+      render("/user/edit")
+    end
+  end
 end
+
