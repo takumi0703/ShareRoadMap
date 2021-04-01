@@ -1,2 +1,19 @@
-<h1>Road#show</h1>
-<p>Find me in app/views/road/show.html.erb</p>
+<div class="col-md-6 content mx-auto">
+    <% if @roads.empty? %>
+        <h3>ロードマップは未作成です</h3>
+        <%= link_to( "作成する","/road/new" ) %>
+    <% else %>
+        <h2>ロードマップ</h2>
+        <% @roads.each.with_index(1) do |road,i| %>
+            <p><%= i %></p> <br>
+            学習内容：<%= road.content  %> <br>
+            学習教材：<%= road.material %> <br>
+            学習教材：<%= road.period %> <br>
+            road_id：<%= road.user_id %> <br>
+        <%= link_to( "編集する","/road/#{study.id}/edit" ) %>
+        <br>
+    <% end %>
+        <%= link_to( "追加する","/road/new" ) %>
+        <% end %>
+    <br>
+</div>
