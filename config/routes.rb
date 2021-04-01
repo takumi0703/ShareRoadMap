@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'road/show'
   get  '/' => "user#new"
   post 'users/create' => "user#create"
 
