@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :set_current_user
   before_action :autheniticate_user,{only: [:show,:edit]}
   before_action :not_set_current_user,{only: [:edit]}
->>>>>>> feature
 
   #ログインユーザー
   def set_current_user
@@ -17,9 +16,7 @@ class ApplicationController < ActionController::Base
      redirect_to("/login")
    end
  end
-<<<<<<< HEAD
-=======
- 
+
  def not_set_current_user
   @user = User.find_by(id: params[:id])
   if @user.id != @current_user.id
@@ -27,5 +24,4 @@ class ApplicationController < ActionController::Base
     redirect_to("/users/#{@current_user.id}")
   end
  end
->>>>>>> feature
 end
