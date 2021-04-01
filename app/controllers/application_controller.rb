@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   #呼び出し。全てのコントローラで適用される
   before_action :set_current_user
-  before_action :autheniticate_user,{only: [:show,:edit]}
+  before_action :autheniticate_user,{only: [:show,:edit,:index]}
   before_action :not_set_current_user,{only: [:edit]}
 
   #ログインユーザー
