@@ -1,0 +1,14 @@
+<div class="container u-container">
+    <div class="row">
+        <% @users.each do |user| %>
+            <div class="u-content">
+            <div class="u-content-left">
+                <img src="<%= "/image/#{user.image_icon}" %>" class="u-image" alt="ユーザーのアイコン画像">
+            </div>
+            <div class="u-content-right">
+                <%= user.name %></h5>
+            </div>
+            </div>
+        <% end %>
+    </div>
+</div>

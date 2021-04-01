@@ -125,3 +125,20 @@ $b-shadow: rgba(0,0,0,0.4);
    margin-bottom: 20px;
   }
 }
+/* User_indext_Page ================================ */
+.u-container { 
+  margin-top: 50px;
+  max-width: 400px;
+}
+.u-image {
+  height: 60px;
+  border-radius: 30%;
+  margin-right: 10px;
+}
+.u-content {
+  display: flex;
+  width: 100%;
+  margin: 5px;
+  border: 1px solid rgb(112, 112, 112);
+  padding: 5px 10px;
+}
