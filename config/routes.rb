@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'users/:id/edit' => "user#edit"
   post 'users/:id/update' => "user#update"
 
-  get  'road/:id' => "road#show"
+  get  'goal/:id' => "goal#show"
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
