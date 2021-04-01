@@ -1,5 +1,9 @@
 class RoadController < ApplicationController
 
+  def new
+    @road = Road.all
+  end
+
   def show
     #ユーザー情報
     @user = User.find_by(id: params[:id])
