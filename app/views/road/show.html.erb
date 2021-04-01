@@ -1,19 +1,35 @@
-<div class="col-md-6 content mx-auto">
-    <% if @roads.empty? %>
-        <h3>ロードマップは未作成です</h3>
-        <%= link_to( "作成する","/road/new" ) %>
-    <% else %>
-        <h2>ロードマップ</h2>
-        <% @roads.each.with_index(1) do |road,i| %>
-            <p><%= i %></p> <br>
-            学習内容：<%= road.content  %> <br>
-            学習教材：<%= road.material %> <br>
-            学習教材：<%= road.period %> <br>
-            road_id：<%= road.user_id %> <br>
-        <%= link_to( "編集する","/road/#{study.id}/edit" ) %>
-        <br>
-    <% end %>
-        <%= link_to( "追加する","/road/new" ) %>
-        <% end %>
-    <br>
+<div class="container road-container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="g-head">目標</h1>
+            <% if @user.goal %>
+                <%= @user.goal %>
+                <%= link_to( "編集する","/users/road/#{@user.id}",class:"user-edit-btn btn btn-primary" ) %>
+            <% else %>
+                <h3 class="g-text">目標はまだ決めていません！</h3>
+                <%= link_to( "作成する","/users/road/new",class:"user-edit-btn btn btn-primary r-btn") %>
+            <% end %>
+        </div>
+        <div class="col-md-6">
+            <% if @roads.empty? %>
+                <div class="not-r">
+                    <h3>ロードマップは未作成です</h3>
+                    <%= link_to( "作成する","/road/new",class:"user-edit-btn btn btn-primary r-btn" ) %>
+                </div>
+            <% else %>
+                <h2>ロードマップ</h2>
+                <% @roads.each.with_index(1) do |road,i| %>
+                    <p><%= i %></p> <br>
+                    学習内容：<%= road.content  %> <br>
+                    学習教材：<%= road.material %> <br>
+                    学習教材：<%= road.period %> <br>
+                    road_id：<%= road.user_id %> <br>
+                <%= link_to( "編集する","/road/#{study.id}/edit" ) %>
+                <br>
+            <% end %>
+                <%= link_to( "追加する","/road/new" ) %>
+                <% end %>
+            <br>
+        </div>
+    </div>
 </div>
