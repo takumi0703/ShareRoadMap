@@ -1,23 +1,13 @@
 <div class="container">
   <div class="row user-show">
-    <div class="col-md-4">
-     <div class="card" style="width: 18rem;">
-      <img src="<%= "/image/#{@user.image_icon}" %>" class="card-img-top" alt="ユーザーのアイコン画像">
-      <div class="card-body">
-       <h5 class="card-title"><%= @user.name %></h5>
-       <% if @current_user== @user%>
-         <%= link_to("編集する", "#{@user.id}/edit",class:"user-edit-btn btn btn-primary") %>        
-       <% end %>
+      <div class="card" style="width: 18rem;">
+        <img src="<%= "/image/#{@user.image_icon}" %>" class="card-img-top" alt="ユーザーのアイコン画像">
+        <div class="card-body">
+        <h5 class="card-title"><%= @user.name %></h5>
+        <% if @current_user== @user%>
+          <%= link_to("編集する", "#{@user.id}/edit",class:"user-edit-btn btn btn-primary") %>        
+        <% end %>
+        </div>
       </div>
-    </div>
-    </div>
-    <div class="col-md-8 show-text">
-    <% if @current_user== @user%>
-      <h2>ロードマップを作成しよう！！</h2>
-      <button href="#" class="btn btn-primary">作成する</button>
-      <% else %>
-       <h2>ロードマップは未作成です</h2>
-      <% end %>
-    </div>
   </div>
 </div>
