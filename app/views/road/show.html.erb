@@ -2,19 +2,19 @@
     <div class="row">
         <div class="col-md-6">
             <h1 class="g-head">目標</h1>
-            <% if @user.goal %>
+            <% if @roads.goal %>
                 <%= @user.goal %>
-                <%= link_to( "編集する","/users/road/#{@user.id}",class:"user-edit-btn btn btn-primary" ) %>
+                <%= link_to( "編集する","/users/goal/#{@user.id}",class:"user-edit-btn btn btn-primary" ) %>
             <% else %>
                 <h3 class="g-text">目標はまだ決めていません！</h3>
-                <%= link_to( "作成する","/users/road/new",class:"user-edit-btn btn btn-primary r-btn") %>
+                <%= link_to( "作成する","/users/goal/new",class:"user-edit-btn btn btn-primary r-btn") %>
             <% end %>
         </div>
         <div class="col-md-6">
             <% if @roads.empty? %>
                 <div class="not-r">
                     <h3>ロードマップは未作成です</h3>
-                    <%= link_to( "作成する","/road/new",class:"user-edit-btn btn btn-primary r-btn" ) %>
+                    <%= link_to( "作成する","/goal/new",class:"user-edit-btn btn btn-primary r-btn" ) %>
                 </div>
             <% else %>
                 <h2>ロードマップ</h2>
@@ -24,10 +24,10 @@
                     学習教材：<%= road.material %> <br>
                     学習教材：<%= road.period %> <br>
                     road_id：<%= road.user_id %> <br>
-                <%= link_to( "編集する","/road/#{study.id}/edit" ) %>
+                <%= link_to( "編集する","/goal/#{study.id}/edit" ) %>
                 <br>
             <% end %>
-                <%= link_to( "追加する","/road/new" ) %>
+                <%= link_to( "追加する","/goal/new" ) %>
                 <% end %>
             <br>
         </div>
