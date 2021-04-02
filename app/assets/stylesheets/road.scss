@@ -4,22 +4,25 @@
 
 /* Road_show_Page ================================ */
 .road-container { 
-    margin-top: 80px;
+    margin-top: 50px;
 }
-.g-head {
-    margin-top: 80px;
+.g-title {
+    width: 100%;
+    text-align: center;
 }
 .g-text {
-    margin: 30px 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
 }
-.not-r {
-    margin-top: 150px;
+.n-studies {
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+    &-title {
+        padding-bottom: 40px;
+    }
 }
-
-.r-btn {
-    margin-top: 80px;
-}
-
 /* Road_new_Page ================================ */
 .g-container {
     display: flex;
