@@ -1,6 +1,9 @@
 <div class="container g-container">
     <div class="row g-form">
-        <%= form_with url: road_new_path do |form| %>
+        <%= form_with url: road_create_path do |form| %>
+            <% @road.errors.full_messages.each do |message| %>   
+                <%= message %>
+            <% end %>
             <h1>目標を設定する！</h1>
             <div class="g-input">
                 <%= form.text_field :goal, :class =>"g-input"  %>

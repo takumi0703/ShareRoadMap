@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post 'users/:id/update' => "user#update"
 
   get  'road/new' => "road#new"
-  get  'road/create' => "road#create"
+  post  'road/create' => "road#create"
   get  'road/:id' => "road#show"
 
 
