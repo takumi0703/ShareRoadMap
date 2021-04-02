@@ -1,7 +1,11 @@
 class RoadController < ApplicationController
 
   def new
-    @road = Road.all
+    @road = Road.new
+  end
+
+  def create
+
   end
 
   def show

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'road/show'
   get  '/' => "user#new"
   post 'users/create' => "user#create"
 
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
   post 'users/:id/update' => "user#update"
 
   get  'road/new' => "road#new"
+  get  'road/create' => "road#create"
   get  'road/:id' => "road#show"
 
 

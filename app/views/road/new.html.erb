@@ -1,8 +1,11 @@
-<div class="container">
-    <div class="row">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
+<div class="container g-container">
+    <div class="row g-form">
+        <%= form_with url: road_new_path do |form| %>
+            <h1>目標を設定する！</h1>
+            <div class="g-input">
+                <%= form.text_field :goal, :class =>"g-input"  %>
+                <%= form.submit :class =>"g-btn", :value =>"作成する"  %>
+            </div>
+        <% end %>
     </div>
 </div>

@@ -19,3 +19,25 @@
 .r-btn {
     margin-top: 80px;
 }
+
+/* Road_new_Page ================================ */
+.g-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+.g-form {
+    border: 7px double #000;
+    padding: 50px  120px 80px;
+    h1 {
+        padding-bottom: 80px;
+    }
+}
+.g-input {
+    width: 100%;
+    margin-bottom: 50px;
+}
+.g-btn {
+    float: right;
+}
