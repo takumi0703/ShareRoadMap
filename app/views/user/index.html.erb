@@ -6,7 +6,7 @@
                     <img src="<%= "/image/#{user.image_icon}" %>" class="u-image" alt="アイコン画像">
                 </div>
                 <div class="u-content-right">
-                    <%= link_to( user.name , "user/#{user.id}", {class: "u-name"}) %>
+                    <%= link_to( user.name , "/users/#{user.id}", {class: "u-name"}) %>
                 </div>
             </div>
         <% end %>
