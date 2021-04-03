@@ -8,10 +8,14 @@
                 <div class="u-content-right">
                     <%= link_to( user.name , "/users/#{user.id}", {class: "u-name"}) %>
                     <% @roads.each do |road| %>
-                        <% if user.id == road.user_id%>
-                            <%= link_to( "目標：#{road.goal}" , "/road/#{user.id}", {class: "u-goal"}) %>
+                        <% if user.id == road.user_id %>
+                            <% if road.goal %>
+                                <%= link_to( "目標：#{road.goal}" , "/road/#{user.id}", {class: "u-goal"}) %>
+                            <% else %>
+                                <%= link_to( "目標はまだ決めていません！" , "/road/#{user.id}", {class: "u-goal"}) %>
+                            <% end %>
                         <% else %>
-                            <%= link_to( "目標はまだ決めていません！" , "/road/#{user.id}", {class: "u-goal"}) %>
+                        <p>マップがありません</p>
                         <% end %>
                     <% end %>
                 </div>
