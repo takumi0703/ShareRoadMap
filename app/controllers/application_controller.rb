@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_current_user
   before_action :autheniticate_user,{only: [:show,:edit,:index]}
   before_action :not_set_current_user,{only: [:edit]}
+  before_action :not_logout_user,{only: [:login_form,:new]}
 
   #ログインユーザー
   def set_current_user
@@ -17,6 +18,15 @@ class ApplicationController < ActionController::Base
    end
  end
 
+  #ログイン中のアクセス制限
+  def not_logout_user
+   if @current_user
+     flash[:alert] = "ログアウトして下さい"
+     redirect_to("/users/index")
+   end
+ end
+
+ #ログインユーザーとuser.idが違う場合のアクセス制限
  def not_set_current_user
   @user = User.find_by(id: params[:id])
   if @user.id != @current_user.id
