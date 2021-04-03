@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'study/new'
   get  '/' => "user#new"
   post 'users/create' => "user#create"
 
