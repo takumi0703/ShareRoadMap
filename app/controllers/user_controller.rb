@@ -44,7 +44,6 @@ class UserController < ApplicationController
 
   def index
     @users = User.all
-    @roads = Road.all
   end
 
   def show
@@ -56,6 +55,7 @@ class UserController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
+    @user.goal = params[:goal]
     @user.name = params[:name]
     @user.email = params[:email]
 
@@ -77,6 +77,7 @@ class UserController < ApplicationController
   end
 
   #RoadAction
+
   def roadshow
     @user = User.find_by(id: params[:id])
     @studies = Study.where(user_id: @user)

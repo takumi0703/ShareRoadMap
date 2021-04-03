@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get  'users/:id' => "user#show"
   get 'users/:id/edit' => "user#edit"
   post 'users/:id/update' => "user#update"
+  #ロードマップ
   get 'users/road/:id' => "user#roadshow"
 
   get  'road/new' => "road#new"

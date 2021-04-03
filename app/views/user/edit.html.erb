@@ -3,8 +3,9 @@
         <%= form_tag("/users/#{@user.id}/update",{multipart: true}) do %>
             <div class="edit-form">
                 <h2>アカウント編集</h2>
+                <div class="form-group">
                     <label class="form-label">ユーザー名</label>
-                    <input name="name" class="form-control" >
+                    <input name="name" class="form-control" value="<%= @user.name %>">
                 </div>
                 <div class="form-group"> 
                     <label for="exampleFormControlFile1">アイコン画像</label>
@@ -12,7 +13,11 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">メールアドレス</label>
-                    <input name="email" class="form-control" >
+                    <input name="email" class="form-control" value="<%= @user.email %>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">目標設定</label>
+                    <input name="goal" class="form-control" value="<%= @user.goal %>">
                 </div>
                 <input type="submit" class="btn btn-primary" value="保存"></input>
             </div>
