@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+/* 共通レイアウト ================================ */
+$b-shadow: rgba(0,0,0,0.4);
+$r-shadow:rgb(104, 21, 18);
+$r-shadow-border:rgba(104, 21, 18,0.1);
+
 /* Road_show_Page ================================ */
 .road-container { 
     margin-top: 50px;
@@ -31,10 +36,12 @@
     margin-top: 80px;
 }
 .g-form {
-    border: 7px double #000;
+    border: 5px double $r-shadow;
     padding: 50px  120px 80px;
     h1 {
+        font-size: 28px;
         padding-bottom: 80px;
+        font-weight: bold;
     }
 }
 .g-input {
