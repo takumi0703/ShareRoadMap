@@ -41,20 +41,20 @@
       </div>
       <% end %>
     </header>
-      <% if flash[:alert] %>
-        <div class="alert">
-          <% flash.each do |alert, message| %>
-            <%= message %>
-          <% end %>
-        </div>
-      <% end %>
-      <% if flash[:success] %>
-        <div class="success">
-          <% flash.each do |success, message| %>
-            <%= message %>
-          <% end %>
-        </div>
-      <% end %>
+    <% if flash[:alert] %>
+      <div class="alert">
+        <% flash.each do |alert, message| %>
+          <%= message %>
+        <% end %>
+      </div>
+    <% end %>
+    <% if flash[:success] %>
+      <div class="success">
+        <% flash.each do |success, message| %>
+          <%= message %>
+        <% end %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

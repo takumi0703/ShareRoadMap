@@ -76,3 +76,11 @@ input[type="date"] {
         border: 1px solid $r-shadow;
     }
 }
+/* StudyEditPage ================================ */
+.study-edit-btn {
+    text-align: center;
+    button {
+        margin-top: 30px;
+        width: 80px;
+    }
+}

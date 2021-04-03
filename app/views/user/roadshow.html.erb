@@ -1,39 +1,38 @@
 <div class="container road-container">
     <div class="row">
-            <h1 class="g-title">目標！</h1>
-            <% if @user.goal %>
-                <h2 class="g-text"><%= @user.goal %></h2>
-            <% else %>
-                <h3 class="g-text">目標はまだ決めていません！</h3>
-            <% end %>
-            <% if @studies.empty? %>
-                <div class="n-studies">
-                    <h3 class="n-studies-title">ロードマップは未作成です</h3>
-                    <% if @current_user== @user%>
-                        <%= link_to( "作成する！","/study/new",class:"user-edit-btn btn btn-primary r-btn" ) %>
-                    <% end %>
-                </div>
-            <% else %>
-                <h4 class="study-title">学習手順</h4>
-                <div class="row studies">
-                <% @studies.each.with_index(1) do |study,i| %>
-                        <div class="d-flex flex-row col-md-4 study-contents">
-                            <div class="study-content">
-                                <div class="study-numbers">
-                                    <h4 class="study-text study-num"><%= i %></h4>
-                                </div>
-                                <h4 class="study-text">学習内容：<%= study.content  %> </h4>
-                                <h4 class="study-text"> 学習教材：<%= study.material %> </h4>
-                                <h4 class="study-text"> 学習教材：<%= study.period %> </h4>
-                                <% if @current_user== @user%>
-                                    <%= link_to( "編集する","/goal/#{study.id}/edit" ,class:"btn btn-primary study-edit-btn ") %>
-                                <% end %>
+        <h1 class="g-title">目標！</h1>
+        <% if @user.goal %>
+            <h2 class="g-text"><%= @user.goal %></h2>
+        <% else %>
+            <h3 class="g-text">目標はまだ決めていません！</h3>
+        <% end %>
+        <% if @studies.empty? %>
+            <div class="n-studies">
+                <h3 class="n-studies-title">ロードマップは未作成です</h3>
+                <% if @current_user== @user%>
+                    <%= link_to( "作成する！","/study/new",class:"user-edit-btn btn btn-primary r-btn" ) %>
+                <% end %>
+            </div>
+        <% else %>
+            <h4 class="study-title">学習手順</h4>
+            <div class="row studies">
+            <% @studies.each.with_index(1) do |study,i| %>
+                    <div class="d-flex flex-row col-md-4 study-contents">
+                        <div class="study-content">
+                            <div class="study-numbers">
+                                <h4 class="study-text study-num"><%= i %></h4>
                             </div>
+                            <h4 class="study-text">学習内容：<%= study.content  %> </h4>
+                            <h4 class="study-text"> 学習教材：<%= study.material %> </h4>
+                            <h4 class="study-text"> 学習教材：<%= study.period %> </h4>
+                            <% if @current_user== @user%>
+                                <%= link_to( "編集する","/study/#{study.id}/edit" ,class:"btn btn-primary study-edit-btn ") %>
+                            <% end %>
                         </div>
-                <% end %>
-                </div>
-                <%= link_to( "追加する","/study/new" ) %>
-                <% end %>
-            <br>
+                    </div>
+            <% end %>
+            </div>
+            <%= link_to( "追加する","/study/new",class:"btn btn-primary study-edit-btn " ) %>
+        <% end %>
     </div>
 </div>

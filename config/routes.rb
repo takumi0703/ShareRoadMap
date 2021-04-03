@@ -15,5 +15,8 @@ Rails.application.routes.draw do
   #学習
   get 'study/new' => "study#new"
   post 'study/create' => "study#create"
+  get 'study/:id/edit' => "study#edit"
+  post 'study/:id/update' => "study#update"
+  post 'study/:id/destroy' => "study#destroy"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
