@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_current_user
   before_action :autheniticate_user,{only: [:show,:edit,:index]}
   before_action :not_set_current_user,{only: [:edit]}
-  before_action :not_logout_user,{only: [:login_form,:new]}
+
 
   #ログインユーザー
   def set_current_user

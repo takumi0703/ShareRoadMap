@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+  before_action :not_logout_user,{only: [:login_form,:new]}
   
   
   def new
