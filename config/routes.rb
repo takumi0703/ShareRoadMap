@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get  'road/new' => "road#new"
   post  'road/create' => "road#create"
   get  'road/:id' => "road#show"
+  get  'road/:id/edit' => "road#edit"
+  post  'road/:id/update' => "road#update"
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

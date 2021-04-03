@@ -25,4 +25,19 @@ class RoadController < ApplicationController
     @studies = Study.where(user_id: @user)
   end
 
+  def edit
+    @user = User.find_by(id: params[:id])
+    @road = Road.find_by(user_id: @user)
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    @road = Road.find_by(user_id: @user)
+    @road.goal = params[:goal]
+    if @road.save
+      flash[:success] = "目標が編集できました！"
+      redirect_to("/users/#{@road.user_id}")
+    end
+  end
+
 end
