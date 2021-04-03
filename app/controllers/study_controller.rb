@@ -1,5 +1,5 @@
 class StudyController < ApplicationController
-
+  before_action :not_set_current_user,{only: [:edit]}
   def new
     @studies = Study.new
   end
@@ -13,7 +13,7 @@ class StudyController < ApplicationController
       user_id:  @current_user.id
     )
     if @studies.save
-      flash[:success] = "学習内容が保存できました！"
+      flash[:success] = "学習を追加しました！"
       redirect_to("/users/road/#{@studies.user_id}")
     else
       render("/study/new")

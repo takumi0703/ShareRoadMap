@@ -7,6 +7,34 @@ $b-shadow: rgba(0,0,0,0.4);
 $r-shadow:rgb(104, 21, 18);
 $r-shadow-border:rgba(104, 21, 18,0.1);
 
+
+/* Road_show_Page ================================ */
+.road-container { 
+    margin-top: 50px;
+    max-width: 1200px;
+  }
+  .g-title {
+    width: 100%;
+    text-align: center;
+    color: $r-shadow;
+  }
+  .g-text {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+  }
+  .n-studies {
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+    &-title {
+        padding-bottom: 40px;
+    }
+}
+.add-study-btn {
+    text-align: center;
+}
+
 /* StudyCreateForm ================================ */
 .f-studies {
     width: 100%;
@@ -47,14 +75,14 @@ input[type="date"] {
 .study-contents {
     border: 1px double $r-shadow;
     border-radius: 20px;
-    padding: 20px 30px;
+    padding: 5px 30px 20px 30px;
     margin: 10px;
     width: 100%;
 }
 .study-content{
     width: 100%;
     .study-text {
-        font-size: 17px;
+        font-size: 15px;
     }
     .study-numbers {
         text-align: center;

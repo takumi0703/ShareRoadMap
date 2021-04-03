@@ -1,7 +1,6 @@
 class UserController < ApplicationController
   before_action :not_logout_user,{only: [:login_form,:new]}
   before_action :not_set_current_user,{only: [:edit]}
-  
   def new
     @user = User.new
   end
