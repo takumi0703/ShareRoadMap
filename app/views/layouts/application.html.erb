@@ -11,32 +11,36 @@
   </head>
 
   <body>
-    <header class="header">
+    <header>
       <% if @current_user %>
-       <h2 class="logo">ShareRoadMap</h2>
-        <ul class="nav justify-content-end">
-            <li class="nav-item">
-             <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
-            </li>
-            <li class="nav-item">
-             <%= link_to("ユーザー一覧", "/users/index") %>
-            </li>
-            <li class="nav-item">
-             <%= link_to("ログアウト", "/logout") %>
-            </li>
-        </ul>
+        <div class="login-hd">
+          <h2 class="logo">ShareRoadMap</h2>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <%= link_to(@current_user.name, "/users/#{@current_user.id}",class:"nav-text") %>
+                </li>
+                <li class="nav-item">
+                <%= link_to("ユーザー一覧", "/users/index",class:"nav-text") %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to("ログアウト", "/logout",class:"nav-text") %>
+                </li>
+            </ul>
+        </div>
       <% else %>
+      <div class="logout-hd">
         <h2 class="logo">ShareRoadMap</h2>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-             <%= link_to("新規登録", "/") %>
+              <%= link_to("新規登録", "/") %>
             </li>
             <li class="nav-item">
             <%= link_to("ログイン", "/login") %>
             </li>
         </ul>
+      </div>
       <% end %>
-      </header>
+    </header>
       <% if flash[:alert] %>
         <div class="alert">
           <% flash.each do |alert, message| %>
