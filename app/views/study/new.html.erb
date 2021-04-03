@@ -1,2 +1,24 @@
-<h1>Study#new</h1>
-<p>Find me in app/views/study/new.html.erb</p>
+<div class="container">
+    <div class="row">
+        <%= form_with  url: "/study/create",class: "f-studies" do |form| %>
+            <div class="f-study">
+                <% @studies.errors.full_messages.each do |message| %>   
+                    <%= message %>
+                <% end %>
+                <div class="form-group">
+                    <%= form.label :content ,'学習内容',:class => 'label-study'%>
+                    <%= form.text_field :content%>
+                </div>
+                <div class="form-group">
+                    <%= form.label :material ,'学習教材',:class =>'label-study'%>
+                    <%= form.text_field :material %>
+                </div>
+                <div class="form-group">
+                    <%= form.label :period ,'学習完了日' ,:class => 'label-study'%>
+                    <%= form.date_field :period %>
+                </div>
+                <%= form.submit "作成" ,:class => 'study-btn'%>
+            </div>
+        <% end %>
+    </div>
+</div>

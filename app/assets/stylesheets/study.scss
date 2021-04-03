@@ -1,3 +1,36 @@
 // Place all the styles related to the Study controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* 共通レイアウト ================================ */
+$b-shadow: rgba(0,0,0,0.4);
+$r-shadow:rgb(104, 21, 18);
+$r-shadow-border:rgba(104, 21, 18,0.1);
+
+/* StudyCreateForm ================================ */
+.f-studies {
+    width: 100%;
+}
+.f-study {
+    text-align: center;
+    border: 3px double $r-shadow;
+    width: 70%;
+    margin: 100px auto 0 auto;
+    padding: 30px 50px;
+    .label-study {
+        display: block;
+    }
+}
+input[type="text"] {
+    width: 100%;
+}
+input[type="date"] {
+    width: 100%;
+}
+.label-study {
+    font-size: 18px;
+    text-align: left;
+}
+.study-btn {
+    width: 20%;
+}

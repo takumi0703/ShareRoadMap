@@ -16,15 +16,13 @@
             <% else %>
                 <h2>ロードマップ</h2>
                 <% @studies.each.with_index(1) do |study,i| %>
-                    <p><%= i %></p> <br>
-                    学習内容：<%= study.content  %> <br>
-                    学習教材：<%= study.material %> <br>
-                    学習教材：<%= study.period %> <br>
-                    road_id：<%= study.user_id %> <br>
+                    <p><%= i %></p>
+                    学習内容：<%= study.content  %> 
+                    学習教材：<%= study.material %> 
+                    学習教材：<%= study.period %> 
                     <% if @current_user== @user%>
                         <%= link_to( "編集する","/goal/#{study.id}/edit" ) %>
                     <% end %>
-                    <br>
                 <% end %>
                 <%= link_to( "追加する","/study/new" ) %>
                 <% end %>
