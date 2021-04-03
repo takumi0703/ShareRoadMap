@@ -75,5 +75,12 @@ class UserController < ApplicationController
       render("/user/edit")
     end
   end
+
+  #RoadAction
+  def roadshow
+    @user = User.find_by(id: params[:id])
+    @studies = Study.where(user_id: @user)
+  end
+
 end
 
