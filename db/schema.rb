@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_135534) do
-
-  create_table "roads", force: :cascade do |t|
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "goal"
-  end
+ActiveRecord::Schema.define(version: 2021_04_03_062417) do
 
   create_table "studies", force: :cascade do |t|
     t.integer "user_id"
@@ -35,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_135534) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "goal"
   end
 
 end
