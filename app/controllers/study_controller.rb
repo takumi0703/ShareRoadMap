@@ -1,5 +1,5 @@
 class StudyController < ApplicationController
-  before_action :not_set_current_user,{only: [:edit]}
+  before_action :not_set_current_user_study,{only: [:edit]}
   def new
     @studies = Study.new
   end
