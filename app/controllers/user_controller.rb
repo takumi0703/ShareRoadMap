@@ -44,6 +44,7 @@ class UserController < ApplicationController
 
   def index
     @users = User.all
+    @roads = Road.all
   end
 
   def show

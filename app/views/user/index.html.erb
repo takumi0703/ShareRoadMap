@@ -3,10 +3,17 @@
         <% @users.each do |user| %>
             <div class="u-content">
                 <div class="u-content-left">
-                    <img src="<%= "/image/#{user.image_icon}" %>" class="u-image" alt="アイコン画像">
+                    <img src="<%= "/image/#{user.image_icon}" %>" class="u-image" alt="アイコン">
                 </div>
                 <div class="u-content-right">
                     <%= link_to( user.name , "/users/#{user.id}", {class: "u-name"}) %>
+                    <% @roads.each do |road| %>
+                        <% if user.id == road.user_id%>
+                            <%= link_to( "目標：#{road.goal}" , "/road/#{user.id}", {class: "u-goal"}) %>
+                        <% else %>
+                            <%= link_to( "目標はまだ決めていません！" , "/road/#{user.id}", {class: "u-goal"}) %>
+                        <% end %>
+                    <% end %>
                 </div>
             </div>
         <% end %>

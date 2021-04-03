@@ -141,7 +141,14 @@ $b-shadow: rgba(0,0,0,0.4);
   margin: 5px;
   border: 1px solid rgb(112, 112, 112);
   padding: 5px 10px;
-  .u-name {
+  &-left {
+    width: 20%;
+  }
+  &-right {
+    display: block;
+  }
+  .u-name,.u-goal {
+    display: block;
     color: #000;
   }
 }
