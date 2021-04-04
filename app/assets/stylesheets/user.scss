@@ -127,12 +127,13 @@ $sp: 480px;  // スマホ
     font-weight: bold;
     @include tab {
       padding-bottom: 30px;
+      font-size: 30px;
     }
   }
   p {
     font-size: 22px;
     @include tab {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 }
@@ -143,6 +144,9 @@ $sp: 480px;  // スマホ
  padding: 10px 30px;
  background-color: $b-shadow;
  color: #fff;
+ @include tab {
+   max-width: 450px;
+ }
 }
 .btn-primary {
  background-color: #fff;
