@@ -116,8 +116,8 @@ input[type="date"] {
 /* StudyEditPage ================================ */
 .study-edit-btn {
     text-align: center;
-    button {
-        margin-top: 30px;
-        width: 80px;
+    .edit-btn {
+        width: 20%;
+        margin-top: 10px;
     }
 }
