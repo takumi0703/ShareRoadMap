@@ -152,6 +152,7 @@ header {
     @include sp {
       padding-bottom: 10px;
       font-size: 20px;
+      color: #000;
     }
   }
   p {
@@ -161,6 +162,7 @@ header {
     }
     @include sp {
       font-size: 14px;
+      color: #000;
     }
   }
 }
