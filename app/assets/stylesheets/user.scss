@@ -60,6 +60,14 @@ $sp: 480px;  // スマホ
 
 
 /* header ================================ */
+header {
+  position:fixed;
+  top:0;
+  width:100%;
+  height:30px;
+  z-index:500;
+
+}
 .logout-hd { 
   display: flex;
   justify-content: space-between;
@@ -77,6 +85,7 @@ $sp: 480px;  // スマホ
   color: $r-shadow;
   padding: 5px 10px;
   border-bottom: 2px solid $r-shadow;
+  background-color: #fff;
   .nav-text {
     color: $r-shadow;
   }
@@ -96,12 +105,14 @@ $sp: 480px;  // スマホ
   background-color: rgb(247, 86, 86);
   font-size: 16px;
   line-height: 5px;
+  padding-top: 50px;
 }
 .success {
   text-align: center;
   color: #fff;
   background-color: skyblue;
   font-size: 16px;
+  padding-top: 50px;
 }
 
 /* SignupPage ================================ */
@@ -205,6 +216,7 @@ $sp: 480px;  // スマホ
 .u-contents {
   border-left: 1px solid $r-shadow-border;
   border-right: 1px solid $r-shadow-border;
+  padding-top: 60px;
 }
 .u-image {
   height: 60px;
