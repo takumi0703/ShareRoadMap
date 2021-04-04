@@ -12,12 +12,21 @@ NULLCMD = :
 #### Start of system configuration section. ####
 
 srcdir = .
+<<<<<<< HEAD
 topdir = /Users/takumi/.rbenv/versions/2.6.6/include/ruby-2.6.0
 hdrdir = $(topdir)
 arch_hdrdir = /Users/takumi/.rbenv/versions/2.6.6/include/ruby-2.6.0/x86_64-darwin19
 PATH_SEPARATOR = :
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
 prefix = $(DESTDIR)/Users/takumi/.rbenv/versions/2.6.6
+=======
+topdir = /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0
+hdrdir = $(topdir)
+arch_hdrdir = /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/universal-darwin19
+PATH_SEPARATOR = :
+VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
+prefix = $(DESTDIR)/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr
+>>>>>>> Editded budler
 rubysitearchprefix = $(rubylibprefix)/$(sitearch)
 rubyarchprefix = $(rubylibprefix)/$(arch)
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
@@ -31,9 +40,15 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
+<<<<<<< HEAD
 sitearchdir = $(DESTDIR)./.gem.20210404-66263-c7ghje
 sitelibdir = $(DESTDIR)./.gem.20210404-66263-c7ghje
 sitedir = $(rubylibprefix)/site_ruby
+=======
+sitearchdir = $(DESTDIR)./.gem.20210404-10035-12bsdc3
+sitelibdir = $(DESTDIR)./.gem.20210404-10035-12bsdc3
+sitedir = $(DESTDIR)/Library/Ruby/Site
+>>>>>>> Editded budler
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)
 sitearchincludedir = $(includedir)/$(sitearch)
@@ -41,13 +56,18 @@ archincludedir = $(includedir)/$(arch)
 sitearchlibdir = $(libdir)/$(sitearch)
 archlibdir = $(libdir)/$(arch)
 ridir = $(datarootdir)/$(RI_BASE_NAME)
+<<<<<<< HEAD
 mandir = $(datarootdir)/man
+=======
+mandir = $(DESTDIR)/usr/share/man
+>>>>>>> Editded budler
 localedir = $(datarootdir)/locale
 libdir = $(exec_prefix)/lib
 psdir = $(docdir)
 pdfdir = $(docdir)
 dvidir = $(docdir)
 htmldir = $(docdir)
+<<<<<<< HEAD
 infodir = $(datarootdir)/info
 docdir = $(datarootdir)/doc/$(PACKAGE)
 oldincludedir = $(SDKROOT)/usr/include
@@ -56,6 +76,15 @@ runstatedir = $(localstatedir)/run
 localstatedir = $(prefix)/var
 sharedstatedir = $(prefix)/com
 sysconfdir = $(prefix)/etc
+=======
+infodir = $(DESTDIR)/usr/share/info
+docdir = $(datarootdir)/doc/$(PACKAGE)
+oldincludedir = $(DESTDIR)/usr/include
+includedir = $(DESTDIR)/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk$(prefix)/include
+localstatedir = $(prefix)/var
+sharedstatedir = $(prefix)/com
+sysconfdir = $(DESTDIR)/Library/Ruby/Site
+>>>>>>> Editded budler
 datadir = $(datarootdir)
 datarootdir = $(prefix)/share
 libexecdir = $(exec_prefix)/libexec
@@ -65,8 +94,13 @@ archdir = $(rubyarchdir)
 
 
 CC_WRAPPER = 
+<<<<<<< HEAD
 CC = clang
 CXX = clang++
+=======
+CC = xcrun clang
+CXX = xcrun clang++
+>>>>>>> Editded budler
 LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
 LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
@@ -79,6 +113,7 @@ CSRCFLAG = $(empty)
 RUBY_EXTCONF_H = 
 cflags   = $(optflags) $(debugflags) $(warnflags)
 cxxflags = $(optflags) $(debugflags) $(warnflags)
+<<<<<<< HEAD
 optflags = -O3
 debugflags = -ggdb3
 warnflags = -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens
@@ -92,6 +127,21 @@ CXXFLAGS = $(CCDLFLAGS) $(cxxflags) $(ARCH_FLAG)
 ldflags  = -L. -L/Users/takumi/.rbenv/versions/2.6.6/lib  -fstack-protector-strong -L/usr/local/lib
 dldflags = -L/Users/takumi/.rbenv/versions/2.6.6/lib  -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress 
 ARCH_FLAG = 
+=======
+optflags = 
+debugflags = -g
+warnflags = 
+cppflags = 
+CCDLFLAGS = 
+CFLAGS   = $(CCDLFLAGS)  -g -Os -pipe -DHAVE_GCC_ATOMIC_BUILTINS $(ARCH_FLAG)
+INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
+DEFS     = 
+CPPFLAGS = -DHAVE_RB_ARY_SUBSEQ -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT $(DEFS) $(cppflags)
+CXXFLAGS = $(CCDLFLAGS)  -g -Os -pipe  $(ARCH_FLAG)
+ldflags  = -L. -L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.Internal.sdk/usr/local/lib
+dldflags = -arch x86_64             -undefined dynamic_lookup -multiply_defined suppress 
+ARCH_FLAG =  -arch x86_64
+>>>>>>> Editded budler
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
 LDSHARED = $(CC) -dynamic -bundle
 LDSHAREDXX = $(CXX) -dynamic -bundle
@@ -105,7 +155,11 @@ RUBY_VERSION_NAME = $(RUBY_BASE_NAME)-$(ruby_version)
 RUBYW_BASE_NAME = rubyw
 RUBY_BASE_NAME = ruby
 
+<<<<<<< HEAD
 arch = x86_64-darwin19
+=======
+arch = universal-darwin19
+>>>>>>> Editded budler
 sitearch = $(arch)
 ruby_version = 2.6.0
 ruby = $(bindir)/$(RUBY_BASE_NAME)
