@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   #呼び出し。全てのコントローラで適用される
   before_action :set_current_user
-  before_action :autheniticate_user,{only: [:show,:edit,:index]}
+  before_action :autheniticate_user,{only: [:show,:edit,:index,:roadshow]}
 
   
   #ログインユーザー

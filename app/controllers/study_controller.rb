@@ -1,5 +1,7 @@
 class StudyController < ApplicationController
-  before_action :not_set_current_user_study,{only: [:edit]}
+  before_action :autheniticate_user,{only: [:edit]}
+  # before_action :not_set_current_user_study,{only: [:edit]}
+  before_action :autheniticate_user,{only: [:new]}
   def new
     @studies = Study.new
   end
@@ -30,7 +32,7 @@ class StudyController < ApplicationController
     @study.material = params[:material]
     @study.period = params[:period]
     if @study.save
-      flash[:success] = "学習内容が変更されました！"
+      flash[:success] = "学習を編集しました！"
       redirect_to("/users/road/#{@study.user_id}")
     else
       render("/study/#{@study.id}/edit")
@@ -40,7 +42,7 @@ class StudyController < ApplicationController
   def destroy
     @study = Study.find_by(id: params[:id])
     if @study.destroy
-      flash[:success] = "学習内容を削除しました！"
+      flash[:success] = "学習を削除しました！"
       redirect_to("/users/road/#{@study.user_id}")
     end
   end

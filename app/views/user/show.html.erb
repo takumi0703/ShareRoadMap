@@ -15,7 +15,8 @@
         <div class="user-text">
           <h5 class="user-name"><%= @user.name %></h5>
           <% if @current_user== @user%>
-            <%= link_to("編集する", "#{@user.id}/edit",class:"user-edit-btn btn btn-primary") %>        
+            <%= link_to("編集", "#{@user.id}/edit",class:"user-edit-btn btn btn-primary") %>  
+            
           <% end %>
         </div>
       </div>

@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row ">
-        <%= form_with  class: "f-studies" do |form| %>
+        <%= form_with url:"/study/#{@study.id}/update" , class: "f-studies" do |form| %>
             <div class="f-study">
                 <% @study.errors.full_messages.each do |message| %>   
                     <%= message %>
@@ -19,7 +19,6 @@
                 </div>
             </div>
             <div class="study-edit-btn">
-                <button type="submit" formaction="<%= "/study/#{@study.id}/destroy"%>" >削除</button>
                 <button type="submit" formaction="<%= "/study/#{@study.id}/update"%>" >保存</button>
             </div>
         <% end %>

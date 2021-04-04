@@ -8,6 +8,7 @@ $r-shadow:rgb(104, 21, 18);
 $r-shadow-border:rgba(104, 21, 18,0.1);
 
 
+
 /* Road_show_Page ================================ */
 .road-container { 
     margin-top: 50px;
@@ -33,6 +34,14 @@ $r-shadow-border:rgba(104, 21, 18,0.1);
 }
 .add-study-btn {
     text-align: center;
+}
+.study-edit-btns {
+    display: flex;
+    padding-top: 10px;
+    .study-edit-btn {
+        margin: 0;
+        margin-right: 5px;
+    }
 }
 
 /* StudyCreateForm ================================ */
