@@ -1,7 +1,7 @@
 class StudyController < ApplicationController
-  before_action :autheniticate_user,{only: [:edit]}
   # before_action :not_set_current_user_study,{only: [:edit]}
-  before_action :autheniticate_user,{only: [:new]}
+  before_action :autheniticate_user,{only: [:new,:edit]}
+  before_action :not_set_current_user_study,{only: [:edit]}
   def new
     @studies = Study.new
   end
