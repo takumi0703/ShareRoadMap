@@ -10,6 +10,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   else
     storage :file
   end
+end
   #同じくクラウド先を指定している
   if Rails.env.production?
     CarrierWave.configure do |config|
@@ -62,4 +63,5 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
 end
