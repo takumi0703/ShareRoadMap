@@ -62,11 +62,12 @@ class UserController < ApplicationController
     @user.email = params[:email]
 
     if params[:image_icon]
+      @user.image_icon = params[:image_icon]
       #名前の保存
-      @user.image_icon = "#{@user.id}.jpg"
-      image = params[:image_icon]
+      # @user.image_icon = "#{@user.id}.jpg"
+      # image = params[:image_icon]
       #フォルダに保存
-      File.binwrite("public/image/#{@user.image_icon}",File.read(image))
+      # File.binwrite("public/image/#{@user.image_icon}",File.read(image))
     end
     
     if @user.save

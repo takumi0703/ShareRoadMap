@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-6">
       <div class="user-content">
-        <img src="<%= "/image/#{@user.image_icon}" %>" class="img-icon" alt="ユーザーのアイコン画像">
+        <img src="<%= @user.image_icon.url %>" class="img-icon" alt="ユーザーのアイコン画像">
         <div class="user-text">
           <h5 class="user-name"><%= @user.name %></h5>
           <% if @current_user== @user%>
