@@ -1,24 +1,43 @@
-# README
+#概要
+SNS型の学習ロードマップ共有アプリです。
+自身の学習の目標や学習内容などを管理しつつ、公開する事ができます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#目的
+学習を始める前にまずは目的を明確にして、より効率的な学習をしてほしいという思いから作成しました。
+また共有アプリとする事で、同じ目標のロードマップを確認する事ができ、より充実したロードマップを作成できると考えました。
 
-Things you may want to cover:
+#デプロイ
+https://shareroadmap.herokuapp.com/
 
-* Ruby version
+#開発環境
+ruby 2.6.3
+Ruby on Rails 6.1.3
+Bootstrap 4.3.1
 
-* System dependencies
+#使い方
+##新規登録
+右上の新規登録ボタンで登録できます。
 
-* Configuration
+##ユーザー詳細画面
+登録が完了すると、右上にユーザー名が表示されます。そこをクリックすると、ユーザー詳細画面に遷移します。
+ユーザーの編集画面と、ロードマップ確認ボタンが表示されます。
+##ユーザー編集画面
+編集を押すと、ユーザー名・メールアドレス・アイコン画像・目標が設定できます。
+##ロードマップ確認
+「ロードマップをみる」を押すと、目標と学習内容が確認できます。
+##学習の新規作成
+ロードマップ詳細画面で学習を新規追加する事ができます。
+学習内容、その学習で使用する教材、学習完了日それぞれを登録する事ができます。
+新規追加した内容から番号が割り振られるので最初に学習する内容から入力してください。
+後から変更も可能です。
+##学習の追加、変更、削除
+追加されると、ロードマップ詳細画面で確認する事ができます。
+「編集」「削除」でその学習の編集、削除ができます。
+「追加」で次の学習を追加する事ができます。
+##ユーザー一覧
+右上の「ユーザー一覧」で利用しているユーザーが確認できます。
+ユーザー、目標をクリックすれば、そのユーザーの詳細を確認する事ができます
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
