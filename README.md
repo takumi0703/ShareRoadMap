@@ -1,4 +1,7 @@
 # ShareRoadMap
+
+<img width="1434" alt="ShareRoadMapの画像" src="https://user-images.githubusercontent.com/61904132/113531310-60523280-9603-11eb-96e0-d892d3d4495a.png">
+
 # 概要
 SNS型の学習ロードマップ共有アプリです。
 自身の学習の目標や学習内容などを管理しつつ、公開する事ができます。
