@@ -14,28 +14,28 @@
     <header>
       <% if @current_user %>
         <div class="login-hd">
-          <h2 class="logo">ShareRoadMap</h2>
+        <%= link_to("ShareroadMap",about_path,class:"logo") %>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                  <%= link_to(@current_user.name, "/users/#{@current_user.id}",class:"nav-text") %>
+                  <%= link_to(@current_user.name,"#{@current_user.id}",class:"nav-text") %>
                 </li>
                 <li class="nav-item">
-                <%= link_to("ユーザー一覧", "/users/index",class:"nav-text") %>
+                <%= link_to("ユーザー一覧", users_index_path,class:"nav-text") %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to("ログアウト", "/logout",class:"nav-text") %>
+                  <%= link_to("ログアウト", logout_path,class:"nav-text") %>
                 </li>
             </ul>
         </div>
       <% else %>
       <div class="logout-hd">
-        <h2 class="logo">ShareRoadMap</h2>
+        <%= link_to("ShareroadMap",about_path,class:"logo") %>
         <ul class="nav justify-content-end">
             <li class="nav-item">
               <%= link_to("新規登録", "/") %>
             </li>
             <li class="nav-item">
-            <%= link_to("ログイン", "/login") %>
+            <%= link_to("ログイン", login_path) %>
             </li>
         </ul>
       </div>

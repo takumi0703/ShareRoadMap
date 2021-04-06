@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get  '/' => "user#new"
+  get  '/about' => "user#about"
   post 'users/create' => "user#create"
   
   get  'login' => "user#login_form"
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   get  'logout' => "user#destroy"
   
   get  'users/index' => "user#index"
-  get  'users/:id' => "user#show"
+  get  'users/:id' ,to: "user#show"
   get 'users/:id/edit' => "user#edit"
   post 'users/:id/update' => "user#update"
   #ロードマップ詳細
