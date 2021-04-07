@@ -6,7 +6,7 @@
             <p>目標へのロードマップを作成してシェアしよう！ <br> 情報を共有して正しい学習手順を見つけ出そう！！</p>
         </div>
         <div class="col-md-4 form-text">
-            <%= form_for(@user,url: {action:"create"}) do  %>
+            <%= form_with  url: user_create_path do |form|  %>
                 <% @user.errors.full_messages.each do |message| %>   
                     <%= message %>
                 <% end %>

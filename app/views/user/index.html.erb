@@ -6,11 +6,11 @@
                     <img src="<%= user.image_icon.url %>" class="u-image" alt="アイコン">
                 </div>
                 <div class="u-content-right">
-                    <%= link_to( user.name , "/users/#{user.id}", {class: "u-name"}) %>
+                    <%= link_to( user.name ,user_path(user), {class: "u-name"}) %>
                     <% if user.goal %>
-                        <%= link_to(  "目標：#{user.goal}" , "/users/#{user.id}", {class: "u-goal"}) %>
+                        <%= link_to(  "目標：#{user.goal}" , user_path(user), {class: "u-goal"}) %>
                     <% else %>
-                        <%= link_to( "目標はまだ決めていません！" , "/users/#{user.id}", {class: "u-goal"}) %>
+                        <%= link_to( "目標はまだ決めていません！" , user_path(user), {class: "u-goal"}) %>
                     <% end %>
                 </div>
             </div>

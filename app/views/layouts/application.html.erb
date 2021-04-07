@@ -17,10 +17,10 @@
         <%= link_to("ShareroadMap","/",class:"logo") %>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                  <%= link_to(@current_user.name,"#{@current_user.id}",class:"nav-text") %>
+                  <%= link_to(@current_user.name,user_path(@current_user),class:"nav-text") %>
                 </li>
                 <li class="nav-item">
-                <%= link_to("ユーザー一覧", users_index_path,class:"nav-text") %>
+                <%= link_to("ユーザー一覧", user_index_path,class:"nav-text") %>
                 </li>
                 <li class="nav-item">
                   <%= link_to("ログアウト", logout_path,class:"nav-text") %>
@@ -32,7 +32,7 @@
         <%= link_to("ShareroadMap","/",class:"logo") %>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-              <%= link_to("新規登録", "/") %>
+              <%= link_to("新規登録", new_user_path) %>
             </li>
             <li class="nav-item">
             <%= link_to("ログイン", login_path) %>

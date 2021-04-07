@@ -1,24 +1,17 @@
 Rails.application.routes.draw do
-  # resources :users
-
-  get  '/new' => "user#new"
+  get  'user/index' => "user#index"
+  resources :user, only: [:new, :show,:edit]
+  resources :study, only: [:new,:edit]
   get  '/' => "user#about"
-  post 'users/create' => "user#create"
+  post 'user/create' => "user#create"
   
   get  'login' => "user#login_form"
   post 'login' => "user#login"
   get  'logout' => "user#destroy"
-  
-  get  'users/index' => "user#index"
-  get  'users/:id' ,to: "user#show"
-  get 'users/:id/edit' => "user#edit"
-  post 'users/:id/update' => "user#update"
-  #ロードマップ詳細
-  get 'users/road/:id' => "user#roadshow"
-  #学習
-  get 'study/new' => "study#new"
+  post 'user/:id/update' => "user#update"
+  get 'user/road/:id' => "user#roadshow"
+
   post 'study/create' => "study#create"
-  get 'study/:id/edit' => "study#edit"
   post 'study/:id/update' => "study#update"
   post 'study/:id/destroy' => "study#destroy"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

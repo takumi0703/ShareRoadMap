@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def autheniticate_user
    if @current_user==nil
      flash[:alert] = "アクセス権限がありません"
-     redirect_to("/login")
+     redirect_to(login_path)
    end
  end
 
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   def not_logout_user
    if @current_user
      flash[:alert] = "ログアウトして下さい"
-     redirect_to("/users/index")
+     redirect_to(user_index_path)
    end
  end
 
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   @user = User.find_by(id: params[:id])
   if @user.id != @current_user.id
     flash[:alert] = "ログアウトして下さい"
-    redirect_to("/users/#{@current_user.id}")
+    redirect_to(user_path(@current_user))
   end
  end
 #ログインユーザーとstudy.user_idが違う場合のアクセス制限
@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
   @study = Study.find_by(id: params[:id])
   if @study.user_id != @current_user.id
     flash[:alert] = "ログアウトして下さい"
-    redirect_to("/users/#{@current_user.id}")
+    redirect_to(user_path(@current_user))
   end
  end
 

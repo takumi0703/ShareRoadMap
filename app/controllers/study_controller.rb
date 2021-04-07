@@ -16,7 +16,7 @@ class StudyController < ApplicationController
     )
     if @studies.save
       flash[:success] = "学習を追加しました！"
-      redirect_to("/users/road/#{@studies.user_id}")
+      redirect_to("/user/road/#{@studies.user_id}")
     else
       render("/study/new")
     end
@@ -33,9 +33,9 @@ class StudyController < ApplicationController
     @study.period = params[:period]
     if @study.save
       flash[:success] = "学習を編集しました！"
-      redirect_to("/users/road/#{@study.user_id}")
+      redirect_to("/user/road/#{@study.user_id}")
     else
-      render("/study/#{@study.id}/edit")
+      render(edit_study_path(@study))
     end
   end
 
@@ -43,7 +43,7 @@ class StudyController < ApplicationController
     @study = Study.find_by(id: params[:id])
     if @study.destroy
       flash[:success] = "学習を削除しました！"
-      redirect_to("/users/road/#{@study.user_id}")
+      redirect_to("/user/road/#{@study.user_id}")
     end
   end
 
