@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get  '/' => "user#new"
-  get  '/about' => "user#about"
+  # resources :users
+
+  get  '/new' => "user#new"
+  get  '/' => "user#about"
   post 'users/create' => "user#create"
   
   get  'login' => "user#login_form"
