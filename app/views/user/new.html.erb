@@ -1,10 +1,7 @@
 <div class="jumbotron">
     <div class="container">
     <div class="row fv-content">
-        <div class="col-md-8 text-left">
-            <h2>ShareRoadMapへようこそ！</h2>
-            <p>目標へのロードマップを作成してシェアしよう！ <br> 情報を共有して正しい学習手順を見つけ出そう！！</p>
-        </div>
+        <%= render :partial => "login_text" %>
         <div class="col-md-4 form-text">
             <%= form_with  url: user_create_path do |form|  %>
                 <% @user.errors.full_messages.each do |message| %>   
