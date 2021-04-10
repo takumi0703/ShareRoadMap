@@ -1,20 +1,13 @@
 require 'rails_helper'
 
-#fill_in => "name属性"
-#with => "入力再現"
-#click => "テキスト"
-#before => "サンプルデータ"
-
-
 RSpec.describe "ユーザー" do
     describe "新規登録" do
         before do
-
+            visit new_user_path
         end
         context '登録成功' do
             before do
-                visit new_user_path
-                fill_in 'name',with:'takumi'
+                fill_in 'name',with:'name'
                 fill_in 'email',with:'a@example.com'
                 fill_in 'password',with:'password'
                 click_button '登録'
@@ -25,7 +18,6 @@ RSpec.describe "ユーザー" do
         end
         context '登録失敗' do
             before do
-                visit new_user_path
                 fill_in 'name',with: nil
                 fill_in 'email',with:'a@example.com'
                 fill_in 'password',with:'password'
