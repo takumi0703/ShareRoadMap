@@ -14,8 +14,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-#Rspecでcapybaraを扱うための読み込み
-require 'capybara/rspec'
+
 
 RSpec.configure do |config|
   #Systemspecを実行するドライバの設定
