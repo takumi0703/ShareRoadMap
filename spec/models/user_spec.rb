@@ -19,6 +19,20 @@ RSpec.describe User, type: :model do
                 expect(user.errors[:name]).to include("を入力してください")
             end
         end
+        context "emailが空の時" do
+            it "emailにエラーが含まれていること" do
+                user = User.new(email: nil)
+                user.valid?
+                expect(user.errors[:email]).to include("を入力してください")
+            end
+        end
+        context "passwordが空の時" do
+            it "nameにエラーが含まれていること" do
+                user = User.new(password: nil)
+                user.valid?
+                expect(user.errors[:password]).to include("を入力してください")
+            end
+        end
     end
 
 end
