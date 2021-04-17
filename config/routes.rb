@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   
   get  'login' => "user#login_form"
   post 'login' => "user#login"
+  
+  resources :guest_sessions, only: [:create]
   get  'logout' => "user#destroy"
   
   post 'user/:id/update' => "user#update"
