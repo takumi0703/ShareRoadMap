@@ -32,14 +32,6 @@ RSpec.describe User, type: :model do
                     expect(user.errors[:password]).to include("を入力してください")
                 end
             end
-            # context "nameが重複している時" do
-                # it "nameにエラーが含まれていることと" do
-                #     FactoryBot.create(:user, name: "username")
-                #     user = FactoryBot.build(:user, name: "username")
-                #     user.valid?
-                #     expect(user.errors[:name]).to include("はすでに存在しています")
-                # end
-            # end
         end
     end
 end
