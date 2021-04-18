@@ -7,15 +7,15 @@
                 <% end %>
                 <div class="form-group">
                     <%= form.label :content ,'学習内容',:class => 'label-study'%>
-                    <%= form.text_field :content%>
+                    <%= form.text_field :content,:value=>@studies.content%>
                 </div>
                 <div class="form-group">
                     <%= form.label :material ,'学習教材',:class =>'label-study'%>
-                    <%= form.text_field :material %>
+                    <%= form.text_field :material,:value=>@studies.material %>
                 </div>
                 <div class="form-group">
                     <%= form.label :period ,'学習完了日' ,:class => 'label-study'%>
-                    <%= form.date_field :period %>
+                    <%= form.date_field :period ,:value=>@studies.period%>
                 </div>
                 <%= form.submit "作成" ,:class => 'study-btn'%>
             </div>

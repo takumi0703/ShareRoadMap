@@ -316,6 +316,9 @@ header {
   .u-name,.u-goal {
     display: block;
     color: #000;
+    @include sp {
+      font-size: 12px;
+    }
   }
 }
 
