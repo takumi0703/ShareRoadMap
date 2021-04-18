@@ -26,7 +26,7 @@ class StudyController < ApplicationController
       flash[:success] = "学習を編集しました！"
       redirect_to("/user/road/#{@study.user_id}")
     else
-      render(edit_study_path(@study))
+      render("study/edit")
     end
   end
 
