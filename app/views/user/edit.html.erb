@@ -1,25 +1,25 @@
 <div class="container user-edit-form">
     <div class="row">
-        <%= form_tag("/user/#{@user.id}/update",{multipart: true}) do %>
+        <%= form_with model:@user do |form| %>
             <div class="edit-form">
                 <h2>アカウント編集</h2>
                 <div class="form-group">
-                    <label class="form-label">ユーザー名</label>
-                    <input name="name" class="form-control" value="<%= @user.name %>">
+                    <%= form.label :name ,'ユーザー名',:class => 'form-label'%>
+                    <%= form.text_field :name, :value=>@user.name,:class => 'form-control' %>
                 </div>
                 <div class="form-group"> 
-                    <label for="exampleFormControlFile1">アイコン画像</label>
-                    <input name="image_icon"  type="file" >
+                    <%= form.label :image_icon ,'アイコン画像',:class => 'form-label'%>
+                    <%= file_field :image_icon, :file %>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">メールアドレス</label>
-                    <input name="email" class="form-control" value="<%= @user.email %>">
+                    <%= form.label :email ,'メールアドレス',:class => 'form-label'%>
+                    <%= form.text_field :email, :value=>@user.email,:class => 'form-control' %>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">目標設定</label>
-                    <input name="goal" class="form-control" value="<%= @user.goal %>">
+                    <%= form.label :goal ,'目標設定',:class => 'form-label'%>
+                    <%= form.text_field :goal, :value=>@user.goal,:class => 'form-control' %>
                 </div>
-                <input type="submit" class="btn btn-primary" value="保存"></input>
+                <%= form.submit "保存" ,:class => 'btn btn-primary'%>
             </div>
         <% end %>
     </div>

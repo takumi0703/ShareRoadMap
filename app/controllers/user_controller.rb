@@ -5,9 +5,6 @@ class UserController < ApplicationController
   def new
     @user = User.new
   end
-  def about
-    
-  end
   
   def create
     @user = User.new(
@@ -23,6 +20,7 @@ class UserController < ApplicationController
       render(new_user_path)
     end
   end
+
   def login_form
   end
 
@@ -40,33 +38,28 @@ class UserController < ApplicationController
     end
   end
 
-  def destroy
-    session[:user_id] = nil
-    flash[:success] = "ログアウトしました"
-    redirect_to(login_path)
-  end
-
   def index
     @users = User.all
   end
 
-  def show
-    @user = User.find_by(id: params[:id])
+  def about
+    
   end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
   def edit
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find_by(id: params[:id])
-    @user.goal = params[:goal]
-    @user.name = params[:name]
-    @user.email = params[:email]
-
+    @user = User.find(params[:id])
+    @user.update(user_params)
     if params[:image_icon]
       @user.image_icon = params[:image_icon]
     end
-    
     if @user.save
      flash[:success] ="ユーザー情報を編集できました！"
      redirect_to(user_path(@user))
@@ -75,13 +68,19 @@ class UserController < ApplicationController
       render("/user/edit")
     end
   end
-
-  #RoadAction
+  def destroy
+    session[:user_id] = nil
+    flash[:success] = "ログアウトしました"
+    redirect_to(login_path)
+  end
 
   def roadshow
     @user = User.find_by(id: params[:id])
     @studies = Study.where(user_id: @user)
   end
-
+  private
+    def user_params
+      params.require(:user).permit(:name,:email,:goal)
+    end
 end
 
