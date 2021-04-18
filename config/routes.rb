@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get  'user/index' => "user#index"
   get  '/' => "user#about"
   post 'user/create' => "user#create"
-  patch 'user/:id' => "user#update"
+  post 'user/:id/update' => "user#update"
   get 'user/road/:id' => "user#roadshow"
   
   post 'study/create' => "study#create"

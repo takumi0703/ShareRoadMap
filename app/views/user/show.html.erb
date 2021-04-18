@@ -2,10 +2,10 @@
   <div class="row user-show">
     <div class="col-md-6 ">
       <h1 class="g-title">目標</h1>
-      <% if @user.goal %>
-          <h2 class="g-text"><%= @user.goal %></h2>
-      <% else %>
+      <% if @user.goal.blank? %>
           <h3 class="g-text">目標はまだ決めていません！</h3>
+      <% else %>
+          <h2 class="g-text"><%= @user.goal %></h2>
       <% end %>
       <%= link_to("ロードマップをみる","/user/road/#{@user.id}",class:"user-edit-btn btn btn-primary") %>
     </div>

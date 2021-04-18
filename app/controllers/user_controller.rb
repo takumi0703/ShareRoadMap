@@ -5,13 +5,14 @@ class UserController < ApplicationController
   def new
     @user = User.new
   end
-  
+
   def create
-    @user = User.new(
-      name: params[:name],
-      email: params[:email],
-      password: params[:password]
-    )
+    @user = User.new(user_params)
+    # @user = User.new(
+    #   name: params[:name],
+    #   email: params[:email],
+    #   password: params[:password]
+    # )
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "新規登録が完了しました！"
@@ -43,7 +44,6 @@ class UserController < ApplicationController
   end
 
   def about
-    
   end
 
   def show
@@ -75,12 +75,13 @@ class UserController < ApplicationController
   end
 
   def roadshow
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
     @studies = Study.where(user_id: @user)
   end
+
   private
     def user_params
-      params.require(:user).permit(:name,:email,:goal)
+      params.permit(:name,:email,:goal,:password)
     end
 end
 

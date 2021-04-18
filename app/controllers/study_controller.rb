@@ -38,7 +38,7 @@ class StudyController < ApplicationController
       redirect_to("/user/road/#{@study.user_id}")
     end
   end
-  ""
+  
   private
     def study_params
       params.permit(:content,:material,:period).merge(user_id: @current_user.id)

@@ -1,6 +1,6 @@
 <div class="container user-edit-form">
     <div class="row">
-        <%= form_with model:@user do |form| %>
+        <%= form_with url:"/user/#{@user.id}/update" do |form| %>
             <div class="edit-form">
                 <h2>アカウント編集</h2>
                 <div class="form-group">

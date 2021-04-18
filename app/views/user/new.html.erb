@@ -3,7 +3,7 @@
     <div class="row fv-content">
         <%= render :partial => "login_text" %>
         <div class="col-md-4 form-text">
-            <%= form_with  url: user_create_path do |form|  %>
+            <%= form_with model:@user ,url:user_create_path do |form|  %>
                 <% @user.errors.full_messages.each do |message| %>   
                     <%= message %>
                 <% end %>
