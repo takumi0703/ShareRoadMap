@@ -3,7 +3,13 @@
         <% @users.each do |user| %>
             <div class="u-content">
                 <div class="u-content-left">
-                    <img src="<%= user.image_icon %>" class="u-image" alt="アイコン">
+                     <%if Rails.env.development? %>
+                        <%= image_tag '/image/2.jpg', class:"u-image" %>
+                    <% elsif Rails.env.test? %>
+                        <%= image_tag '/image/2.jpg', class:"u-image" %>
+                    <% else%>
+                    <img src="<%= @user.image_icon.url %>" class="u-image" alt="アイコン">
+                    <% end %>
                 </div>
                 <div class="u-content-right">
                     <%= link_to( user.name ,user_path(user), {class: "u-name"}) %>
