@@ -7,13 +7,7 @@ class StudyController < ApplicationController
   end
 
   def create
-    @user = User.find_by(id: params[:id])
-    @studies = Study.new(
-      content: params[:content],
-      material: params[:material],
-      period: params[:period],
-      user_id:  @current_user.id
-    )
+    @studies = Study.new(study_params)
     if @studies.save
       flash[:success] = "学習を追加しました！"
       redirect_to("/user/road/#{@studies.user_id}")
@@ -23,14 +17,12 @@ class StudyController < ApplicationController
   end
 
   def edit
-    @study =Study.find_by(id: params[:id])
+    @study =Study.find(params[:id])
   end
 
   def update
-    @study = Study.find_by(id: params[:id])
-    @study.content = params[:content]
-    @study.material = params[:material]
-    @study.period = params[:period]
+    @study = Study.find(params[:id])
+    @study.update(study_params)
     if @study.save
       flash[:success] = "学習を編集しました！"
       redirect_to("/user/road/#{@study.user_id}")
@@ -40,11 +32,15 @@ class StudyController < ApplicationController
   end
 
   def destroy
-    @study = Study.find_by(id: params[:id])
+    @study = Study.find(params[:id])
     if @study.destroy
       flash[:success] = "学習を削除しました！"
       redirect_to("/user/road/#{@study.user_id}")
     end
   end
-
+  ""
+  private
+    def study_params
+      params.permit(:content,:material,:period).merge(user_id: @current_user.id)
+    end
 end
