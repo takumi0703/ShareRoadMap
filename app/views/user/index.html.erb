@@ -3,7 +3,7 @@
         <% @users.each do |user| %>
             <div class="u-content">
                 <div class="u-content-left">
-                    <img src="<%= @user.image_icon.url %>" class="u-image" alt="アイコン">
+                    <img src="<%= user.image_icon.url %>" class="u-image" alt="アイコン">
                 </div>
                 <div class="u-content-right">
                     <%= link_to( user.name ,user_path(user), {class: "u-name"}) %>
