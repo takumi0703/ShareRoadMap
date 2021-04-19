@@ -14,7 +14,7 @@
         <%if  @user.image_icon? %>
             <img src="<%= @user.image_icon.url %>" class="img-icon" alt="ユーザーアイコン">
           <% else %>
-            <image src="/assets/default.png" class="img-icon" alt="ユーザーアイコン" >
+            <%= image_tag '/assets/default.jpeg' ,class:"img-icon", :alt => 'ユーザーアイコン' %>
         <% end %>
         <div class="user-text">
           <h5 class="user-name"><%= @user.name %></h5>
