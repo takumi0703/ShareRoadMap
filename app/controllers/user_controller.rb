@@ -73,7 +73,7 @@ class UserController < ApplicationController
     @user = User.find(params[:id])
     @studies = Study.where(user_id: @user)
   end
-
+  
   private
     def user_params
       params.permit(:name,:email,:goal,:password,:image_icon)
