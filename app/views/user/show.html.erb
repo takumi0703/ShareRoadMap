@@ -11,13 +11,11 @@
     </div>
     <div class="col-md-6">
       <div class="user-content">
-      <%if Rails.env.development? %>
-        <%= image_tag '/image/2.jpg', class:"img-icon" %>
-      <% elsif Rails.env.test? %>
-        <%= image_tag '/image/2.jpg', class:"img-icon" %>
-      <% else%>
-          <img src="<%= @user.image_icon.url %>" class="img-icon" alt="ユーザーのアイコン画像">
-      <% end %>
+        <%if  @user.image_icon? %>
+            <img src="<%= @user.image_icon.url %>" class="img-icon" alt="ユーザーアイコン">
+          <% else %>
+            <image src="/assets/default.png" class="img-icon" alt="ユーザーアイコン" >
+        <% end %>
         <div class="user-text">
           <h5 class="user-name"><%= @user.name %></h5>
           <% if @current_user== @user%>
