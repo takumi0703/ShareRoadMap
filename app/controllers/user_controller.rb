@@ -1,6 +1,6 @@
 class UserController < ApplicationController
-  before_action :not_logout_user,{only: [:login_form,:new]}
-  before_action :not_set_current_user,{only: [:edit]}
+  before_action :not_logout_user,{:only => [:login_form,:new]}
+  before_action :not_set_current_user,{:only => [:edit]}
   
   def new
     @user = User.new
@@ -21,7 +21,7 @@ class UserController < ApplicationController
   end
 
   def login
-    @user = User.find_by(email: params[:email])
+    @user = User.find_by(:email => params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:success] = "ログインしました"
@@ -71,7 +71,7 @@ class UserController < ApplicationController
 
   def roadshow
     @user = User.find(params[:id])
-    @studies = Study.where(user_id: @user)
+    @studies = Study.where(:user_id => @user)
   end
   
   private

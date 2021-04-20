@@ -1,0 +1,23 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.6.3
+  TargetRailsVersion: 6.1.3.1
+  NewCops: enable #rubcopの新しいバージョンの機能を自動追加
+  Exclude: #除外ファイル
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'node_modules/**/*'
+
+  Rails: #ファイルパスからどこをチェックすればいいか自動で判断
+    Enabled: true
+    # 日本語でのコメントを許可
+  AsciiComments:
+    Enabled: false
+    # モジュール名::クラス名の定義を許可
+  ClassAndModuleChildren:
+    Enabled: false

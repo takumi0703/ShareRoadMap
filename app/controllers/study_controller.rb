@@ -1,6 +1,6 @@
 class StudyController < ApplicationController
-  before_action :autheniticate_user,{only: [:new,:edit]}
-  before_action :not_set_current_user_study,{only: [:edit]}
+  before_action :autheniticate_user,{:only => [:new,:edit]}
+  before_action :not_set_current_user_study,{:only => [:edit]}
   def new
     @studies = Study.new
   end
@@ -40,6 +40,6 @@ class StudyController < ApplicationController
   
   private
     def study_params
-      params.permit(:content,:material,:period).merge(user_id: @current_user.id)
+      params.permit(:content,:material,:period).merge(:user_id => @current_user.id)
     end
 end
