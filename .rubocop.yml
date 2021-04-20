@@ -11,12 +11,16 @@ AllCops:
     - 'tmp/**/*'
     - 'config/**/*'
     - 'script/**/*'
+    - "db/schema.rb"
     - 'node_modules/**/*'
     # 日本語でのコメントを許可
-  AsciiComments:
+  Style/AsciiComments:
     Enabled: false
   Rails: #ファイルパスからどこをチェックすればいいか自動で判断
     Enabled: true
     # モジュール名::クラス名の定義を許可
   ClassAndModuleChildren:
+    Enabled: false
+    # クラスのコメント必須を無視
+  Documentation:
     Enabled: false

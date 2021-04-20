@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserController < ApplicationController
   before_action :not_logout_user, { only: %i[login_form new] }
   before_action :not_set_current_user, { only: [:edit] }
@@ -21,7 +23,7 @@ class UserController < ApplicationController
 
   def login
     @user = User.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password])
+    if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:success] = 'ログインしました'
       redirect_to(user_path(@user))

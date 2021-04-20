@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StudyController < ApplicationController
   before_action :autheniticate_user, { only: %i[new edit] }
   before_action :not_set_current_user_study, { only: [:edit] }
