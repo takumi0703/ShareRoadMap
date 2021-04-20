@@ -1,7 +1,7 @@
 class UserController < ApplicationController
-  before_action :not_logout_user,{:only => [:login_form,:new]}
-  before_action :not_set_current_user,{:only => [:edit]}
-  
+  before_action :not_logout_user, { only: %i[login_form new] }
+  before_action :not_set_current_user, { only: [:edit] }
+
   def new
     @user = User.new
   end
@@ -10,27 +10,26 @@ class UserController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:success] = "新規登録が完了しました！"
+      flash[:success] = '新規登録が完了しました！'
       redirect_to(user_path(@user))
     else
       render(new_user_path)
     end
   end
 
-  def login_form
-  end
+  def login_form; end
 
   def login
-    @user = User.find_by(:email => params[:email])
+    @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      flash[:success] = "ログインしました"
-      redirect_to(user_path(@user))  
+      flash[:success] = 'ログインしました'
+      redirect_to(user_path(@user))
     else
-      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @error_message = 'メールアドレスまたはパスワードが間違っています'
       @email = params[:email]
       @password = params[:password]
-      render("user/login_form")  
+      render('user/login_form')
     end
   end
 
@@ -38,8 +37,7 @@ class UserController < ApplicationController
     @users = User.all
   end
 
-  def about
-  end
+  def about; end
 
   def show
     @user = User.find(params[:id])
@@ -52,31 +50,30 @@ class UserController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    if params[:image_icon]
-      @user.image_icon = params[:image_icon]
-    end
+    @user.image_icon = params[:image_icon] if params[:image_icon]
     if @user.save
-     flash[:success] ="ユーザー情報を編集できました！"
-     redirect_to(user_path(@user))
+      flash[:success] = 'ユーザー情報を編集できました！'
+      redirect_to(user_path(@user))
     else
-      flash.now[:alert] ="編集に誤りがあります"
-      render("/user/edit")
+      flash.now[:alert] = '編集に誤りがあります'
+      render('/user/edit')
     end
   end
+
   def destroy
     session[:user_id] = nil
-    flash[:success] = "ログアウトしました"
+    flash[:success] = 'ログアウトしました'
     redirect_to(login_path)
   end
 
   def roadshow
     @user = User.find(params[:id])
-    @studies = Study.where(:user_id => @user)
+    @studies = Study.where(user_id: @user)
   end
-  
-  private
-    def user_params
-      params.permit(:name,:email,:goal,:password,:image_icon)
-    end
-end
 
+  private
+
+  def user_params
+    params.permit(:name, :email, :goal, :password, :image_icon)
+  end
+end
