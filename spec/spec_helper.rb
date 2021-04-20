@@ -18,9 +18,8 @@
 
 RSpec.configure do |config|
   # Systemspecを実行するドライバの設定
-  config.before(:each, type: :system) do
-    driven_by :selenium_chrome_headless
-  end
+  config.before(:each, type: :system) { driven_by :selenium_chrome_headless }
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
