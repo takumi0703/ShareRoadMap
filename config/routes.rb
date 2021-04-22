@@ -15,9 +15,9 @@ Rails
     post 'study/create' => 'study#create'
     post 'study/:id/update' => 'study#update'
     post 'study/:id/destroy' => 'study#destroy'
-    resources :user, only: %i[new show edit]
-    resources :study, only: %i[new edit] do
-      resources :like ,only: %i[create destroy]
+    resources :user, only: [:new,:show,:edit]
+    resources :study, only: [:new,:edit] do
+      resources :like ,only: [:create,:destroy]
     end
     resources :guest_sessions, only: [:create]
   end
