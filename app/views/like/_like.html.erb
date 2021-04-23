@@ -1,0 +1,19 @@
+<% if study.liked_by?(@current_user) %>
+    <%= link_to study_like_path(study.id),method: :delete,class:"like_btn",remote: true do %>
+        <i class="far fa-thumbs-up liked"></i>
+        <span><%= study.likes.count %></span>
+    <% end %>
+<% else %>
+    <%=link_to "/study/#{study.id}/like", method: :post ,class:"like_btn",remote: true do%>
+        <i class="fas fa-thumbs-up"></i>
+        <span><%= study.likes.count %></span>
+    <% end %>
+<% end %>
+
+
+<h1>Ajax#index</h1>
+<p id="hoge">赤色になるよ</p>
+
+<script>
+  $("#hoge").css("color","red")
+</script>

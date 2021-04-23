@@ -7,7 +7,6 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
-# Bootstrap
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 # 日本語エラー
@@ -36,13 +35,12 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rb-readline'
+gem 'pry-rails'
 
-# CarrierWave導入
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 
-# 開発環境とテスト環境
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

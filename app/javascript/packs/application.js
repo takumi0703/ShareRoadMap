@@ -12,6 +12,10 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
+
+//= require activestorage
+//= require turbolinks
+//= require_tree .
+//= require jquery
+//= require jquery_ujs
+
