@@ -19,7 +19,8 @@ class UserController < ApplicationController
     end
   end
 
-  def login_form; end
+  def login_form
+  end
 
   def login
     @user = User.find_by(email: params[:email])
