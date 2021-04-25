@@ -1,6 +1,2 @@
 <h1 class="g-title">目標</h1>
-<% if @user.goal.blank? %>
-    <h3 class="g-text">目標はまだ決めていません！</h3>
-<% else %>
-    <h2 class="g-text"><%= @user.goal %></h2>
-<% end %>
+<h3 class="g-text"><%= goal_text(@user.goal) %> </h3>
