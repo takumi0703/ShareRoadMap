@@ -1,0 +1,49 @@
+ <h4 class="study-title">学習手順</h4>
+<div class="row studies">
+    <% @studies.each.with_index(1) do |study,i| %>
+            <div class="d-flex flex-row col-lg-3 study-contents">
+                <div class="study-content">
+                    <div class="study-numbers">
+                        <h4 class="study-text study-num"><%= i %></h4>
+                    </div>
+                    <h4 class="study-text">学習内容：<%= study.content  %> </h4>
+                    <h4 class="study-text">
+                        <%if study.material.empty? %>
+                            学習教材：未定
+                            <% else %>
+                            学習教材：<%= study.material %>
+                        <% end %>
+                    </h4>
+                    <h4 class="study-text">
+                        <%if study.period.nil? %>
+                            学習完了予定日：未定
+                        <% else %>
+                            学習完了予定日：<%= study.period %>まで
+                        <% end %>
+                    </h4>
+                    <% if @current_user== @user%>
+                        <div class="study-edit-btns">
+                            <%= link_to( "編集",edit_study_path(study) ,class:"btn btn-primary study-edit-btn ") %>
+                            <%= link_to("削除" ,"/study/#{study.id}/destroy",class:"btn btn-primary study-edit-btn",method: :post)%>
+                        </div>
+                    <% end %>
+                    <% if study.liked_by?(@current_user) %>
+                        <%= link_to study_like_path(study.id),method: :delete,class:"like_btn" do %>
+                            <i class="far fa-thumbs-up liked"></i>
+                            <span><%= study.likes.count %></span>
+                        <% end %>
+                    <% else %>
+                        <%=link_to "/study/#{study.id}/like", method: :post ,class:"like_btn" do %>
+                            <i class="fas fa-thumbs-up"></i>
+                            <span><%= study.likes.count %></span>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+    <% end %>
+</div>
+<% if  @user == @current_user %>
+    <div class="add-study-btn">
+        <%= link_to( "追加","/study/new",class:"btn btn-primary study-edit-btn" ) %>
+    </div>
+<% end %>
