@@ -4,8 +4,9 @@ ja:
       user:
         name: 名前
         email: メールアドレス
+        password: パスワード
         goal: 目標
-      study: 
+      study:
         content: 学習内容
         material: 学習教材
         period: 学習完了日
