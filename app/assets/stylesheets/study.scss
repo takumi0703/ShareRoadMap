@@ -2,15 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
 /* 共通レイアウト ================================ */
 $b-shadow: rgba(0,0,0,0.4);
 $r-shadow:rgb(104, 21, 18);
 $r-shadow-border:rgba(104, 21, 18,0.1);
 
 
+/* レスポンシブ ================================ */
+$pc: 1024px; // PC
+$tab: 767px; // タブレット
+$sp: 480px;  // スマホ
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
 
 /* Road_show_Page ================================ */
-.road-container { 
+.road-container {
     margin-top: 50px;
     max-width: 1200px;
   }
@@ -42,6 +63,13 @@ $r-shadow-border:rgba(104, 21, 18,0.1);
     .study-edit-btn {
         margin: 0;
         margin-right: 5px;
+    }
+}
+
+.col-lg-4 {
+    max-width: 30.333333%!important;
+    @include tab {
+        max-width: 100%!important;
     }
 }
 

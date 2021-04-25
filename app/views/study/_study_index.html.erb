@@ -1,27 +1,19 @@
  <h4 class="study-title">学習手順</h4>
 <div class="row studies">
     <% @studies.each.with_index(1) do |study,i| %>
-            <div class="d-flex flex-row col-lg-3 study-contents">
+            <div class="d-flex flex-row col-lg-4 study-contents">
                 <div class="study-content">
                     <div class="study-numbers">
                         <h4 class="study-text study-num"><%= i %></h4>
                     </div>
                     <h4 class="study-text">学習内容：<%= study.content  %> </h4>
                     <h4 class="study-text">
-                        <%if study.material.empty? %>
-                            学習教材：未定
-                            <% else %>
-                            学習教材：<%= study.material %>
-                        <% end %>
+                        <%= study_material(study) %>
                     </h4>
                     <h4 class="study-text">
-                        <%if study.period.nil? %>
-                            学習完了予定日：未定
-                        <% else %>
-                            学習完了予定日：<%= study.period %>まで
-                        <% end %>
+                        <%= study_period(study) %>
                     </h4>
-                    <% if @current_user== @user%>
+                    <% if current_user?(@user.id)%>
                         <div class="study-edit-btns">
                             <%= link_to( "編集",edit_study_path(study) ,class:"btn btn-primary study-edit-btn ") %>
                             <%= link_to("削除" ,"/study/#{study.id}/destroy",class:"btn btn-primary study-edit-btn",method: :post)%>
@@ -42,7 +34,7 @@
             </div>
     <% end %>
 </div>
-<% if  @user == @current_user %>
+<% if  current_user?(@user.id) %>
     <div class="add-study-btn">
         <%= link_to( "追加","/study/new",class:"btn btn-primary study-edit-btn" ) %>
     </div>
