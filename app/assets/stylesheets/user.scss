@@ -22,7 +22,7 @@ ul, li {
   margin: 0;
 }
 h1, h2, h3, h4, h5, h6, p {
-  margin:  0; 
+  margin:  0;
 }
 a {
   color: #fff;
@@ -39,7 +39,7 @@ a {
 /* レスポンシブ ================================ */
 $pc: 1024px; // PC
 $tab: 767px; // タブレット
-$sp: 480px;  // スマホ
+$sp: 575px;  // スマホ
 
 @mixin pc {
   @media (max-width: ($pc)) {
@@ -67,7 +67,7 @@ header {
   z-index:500;
 
 }
-.logout-hd { 
+.logout-hd {
   display: flex;
   justify-content: space-between;
   color: #fff;
@@ -149,7 +149,7 @@ header {
     padding: 80px 0;
     font-size: 20px;
   }
-  
+
 }
 .about-left {
   max-width: 700px;
@@ -161,7 +161,7 @@ header {
 }
 
 /* SignupPage ================================ */
-.jumbotron { 
+.jumbotron {
   background:url(/matt-duncan-IUY_3DvM__w-unsplash.jpg)center no-repeat; background-size: cover;
   height: 100vh;
   width: 100vw;
@@ -207,7 +207,7 @@ header {
 }
 
 // SignupForm
-.form-text { 
+.form-text {
  border: 1px solid #fff;
  padding: 10px 30px;
  background-color: $b-shadow;
@@ -250,7 +250,7 @@ header {
 }
 
 .user-content {
-  margin-top: 40px; 
+  margin-top: 40px;
   border: 3px double $r-shadow;
   padding: 10px 0px 70px 0px;
 }
@@ -289,13 +289,34 @@ header {
   }
 }
 /* User_indext_Page ================================ */
-.u-container { 
-  max-width: 600px;
+.search-form {
+  position: fixed;
+  margin-top: 100px;
+  @include sp {
+    margin-top: 38px;
+    background-color: #fff;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid $r-shadow;
+  }
+}
+.search-field {
+  text-align: center;
+}
+.user-index {
+  @include sp {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 .u-contents {
   border-left: 1px solid $r-shadow-border;
   border-right: 1px solid $r-shadow-border;
-  padding-top: 60px;
+  margin-top: 60px;
+  max-width: 750px;
+  @include sp {
+    margin-top: 100px;
+  }
 }
 .u-image {
   height: 60px;
