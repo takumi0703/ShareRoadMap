@@ -21,6 +21,12 @@ Bootstrap 4.3.1
 # ER図
   <img width="877" alt="スクリーンショット 2021-04-22 18 07 31" src="https://user-images.githubusercontent.com/61904132/115687979-ad6d2d00-a395-11eb-9c85-abd626b28fe9.png">
 
+# 実装機能
+・新規登録、ログイン、ゲストユーザー 機能
+・CRUD機能
+・S3を使用した画像アップロード機能
+・検索機能
+・いいね機能
 
 # 使い方
 ### 新規登録
