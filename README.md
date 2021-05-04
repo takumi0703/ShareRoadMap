@@ -21,7 +21,7 @@ Ruby on Rails 6.1.3
   <img width="877" alt="スクリーンショット 2021-04-22 18 07 31" src="https://user-images.githubusercontent.com/61904132/115687979-ad6d2d00-a395-11eb-9c85-abd626b28fe9.png">
 
 # 実装機能
-・新規登録、ログイン、ゲストユーザー
+・新規登録・ログイン・ゲストログイン
 ・CRUD
 ・S3を使用した画像アップロード
 ・検索
