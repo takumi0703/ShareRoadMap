@@ -54,8 +54,14 @@ class UserController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    @user.image_icon = params[:image_icon] if params[:image_icon]
+    @user.update(
+      name: params[:name],
+      email: params[:email],
+      goal: params[:goal],
+    )
+    if params[:image_icon]
+      @user.image_icon = params[:image_icon]
+    end
     if @user.save
       flash[:success] = 'ユーザー情報を編集できました！'
       redirect_to(user_path(@user))
@@ -76,9 +82,11 @@ class UserController < ApplicationController
     @studies = Study.where(user_id: @user)
   end
 
-  private
+  # private
 
-  def user_params
-    params.permit(:name, :email, :goal, :password, :image_icon)
-  end
+  # def user_params
+  #   params.permit(:name, :email, :goal, :password,:image_icon)
+  # end
+
+  # @user.update(user_params]
 end

@@ -16,7 +16,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 end
 # 同じくクラウド先を指定している
-if Rails.env.production?
+if Rails.env.production? || Rails.env.development?
   CarrierWave.configure do |config|
     config.fog_credentials = {
       # Amazon S3用の設定
