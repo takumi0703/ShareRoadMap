@@ -4,6 +4,7 @@ class Study < ApplicationRecord
   validates :content, presence: true
   validates :user_id, presence: true
   has_many :likes
+  has_many :comments
   scope :sorted, -> { order(id: :asc) }
 
   def liked_by?(user)
