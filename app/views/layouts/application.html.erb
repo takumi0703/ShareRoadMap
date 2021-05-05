@@ -21,6 +21,9 @@
                   <%= link_to(@current_user.name,user_path(@current_user),class:"nav-text") %>
                 </li>
                 <li class="nav-item">
+                  <%= link_to("ロードマップ","/user/road/#{@current_user.id}",class:"nav-text") %>
+                </li>
+                <li class="nav-item">
                 <%= link_to("ユーザー一覧", user_index_path,class:"nav-text") %>
                 </li>
                 <li class="nav-item">
