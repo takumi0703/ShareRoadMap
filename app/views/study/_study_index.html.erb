@@ -1,4 +1,4 @@
- <h4 class="study-title">学習手順</h4>
+ <h4 class="study-title">学習する手順</h4>
 <div class="row studies">
     <% @studies.each.with_index(1) do |study,i| %>
             <div class="d-flex flex-row col-lg-4 study-contents">
@@ -19,17 +19,28 @@
                             <%= link_to("削除" ,"/study/#{study.id}/destroy",class:"btn btn-primary study-edit-btn",method: :post)%>
                         </div>
                     <% end %>
-                    <% if study.liked_by?(@current_user) %>
-                        <%= link_to study_like_path(study.id),method: :delete,class:"like_btn" do %>
-                            <i class="far fa-thumbs-up liked"></i>
-                            <span><%= study.likes.count %></span>
+                    <div class="icons">
+                        <% if study.liked_by?(@current_user) %>
+                            <%= link_to study_like_path(study.id),method: :delete,class:"like_btn" do %>
+                                <i class="far fa-thumbs-up liked"></i>
+                                <span><%= study.likes.count %></span>
+                            <% end %>
+                        <% else %>
+                            <%=link_to "/study/#{study.id}/like", method: :post ,class:"like_btn" do %>
+                                <i class="fas fa-thumbs-up"></i>
+                                <span><%= study.likes.count %></span>
+                            <% end %>
                         <% end %>
-                    <% else %>
-                        <%=link_to "/study/#{study.id}/like", method: :post ,class:"like_btn" do %>
-                            <i class="fas fa-thumbs-up"></i>
-                            <span><%= study.likes.count %></span>
+                        <% if  study.completed.nil? %>
+                            <%= link_to completed_create_path(study) , method: :post  do %>
+                                <i class="far fa-check-circle check complete"></i>
+                            <% end %>
+                        <% else %>
+                            <%= link_to completed_destroy_path(study) , method: :post do %>
+                            <i class="far fa-check-circle  check completed"></i>
+                            <% end %>
                         <% end %>
-                    <% end %>
+                    </div>
                 </div>
             </div>
     <% end %>

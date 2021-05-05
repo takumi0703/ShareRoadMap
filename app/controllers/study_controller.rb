@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class StudyController < ApplicationController
-  before_action :autheniticate_user, { only: %i[new edit] }
+  before_action :autheniticate_user, { only: [:new,:edit,:completed_create,:completed_destroy] }
   before_action :not_set_current_user_study, { only: [:edit] }
+  before_action :not_set_current_user_complete, { only: [:completed_create,:completed_destroy] }
   def new
     @studies = Study.new
   end
@@ -15,6 +16,19 @@ class StudyController < ApplicationController
     else
       render('/study/new')
     end
+  end
+
+  def completed_create
+    @study = Study.find(params[:id])
+    completed = @study.update(completed: @current_user.id)
+    flash[:success] = 'コンプリートおめでとう！!'
+    redirect_to("/user/road/#{@study.user_id}")
+  end
+
+  def completed_destroy
+    @study = Study.find(params[:id])
+    completed = @study.update(completed: nil)
+    redirect_to("/user/road/#{@study.user_id}")
   end
 
   def edit

@@ -44,5 +44,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # ログインユーザーとstudy.user_idが違う場合の警告
+  def not_set_current_user_complete
+    @study = Study.find_by(id: params[:id])
+    if @study.user_id != @current_user.id
+      flash[:alert] = 'ログインユーザーのみ操作できるよ'
+      redirect_to("/user/road/#{@study.user_id}")
+    end
+  end
+
 
 end
