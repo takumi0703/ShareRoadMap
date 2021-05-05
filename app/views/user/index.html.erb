@@ -27,7 +27,7 @@
             <div class="search-form">
                 <%= search_form_for @q ,url: user_index_path do |f| %>
                         <div class="search-field">
-                            <%= f.search_field :name_or_goal_cont %>
+                            <%= f.search_field :name_or_goal_cont , :placeholder => "目標を検索してみよう"%>
                             <%= f.submit "検索" %>
                         </div>
                 <% end %>
