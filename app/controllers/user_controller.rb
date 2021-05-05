@@ -54,11 +54,7 @@ class UserController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(
-      name: params[:name],
-      email: params[:email],
-      goal: params[:goal],
-    )
+    @user.update(user_params)
     if params[:image_icon]
       @user.image_icon = params[:image_icon]
     end
@@ -82,11 +78,11 @@ class UserController < ApplicationController
     @studies = Study.where(user_id: @user)
   end
 
-  # private
+  private
 
-  # def user_params
-  #   params.permit(:name, :email, :goal, :password,:image_icon)
-  # end
+  def user_params
+    params.permit(:name, :email, :goal, :password,:image_icon)
+  end
 
-  # @user.update(user_params]
+
 end
