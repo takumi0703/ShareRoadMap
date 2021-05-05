@@ -2,16 +2,16 @@
     <div class="row">
         <%= form_with  url: "/study/create",class: "f-studies" do |form| %>
             <div class="f-study">
-                <% @studies.errors.full_messages.each do |message| %>   
+                <% @studies.errors.full_messages.each do |message| %>
                     <%= message %>
                 <% end %>
                 <div class="form-group">
                     <%= form.label :content ,'学習内容',:class => 'label-study'%>
-                    <%= form.text_field :content,:value=>@studies.content%>
+                    <%= form.text_field :content,:value=>@studies.content, :placeholder => "学習する内容を記入しよう！"%>
                 </div>
                 <div class="form-group">
                     <%= form.label :material ,'学習教材',:class =>'label-study'%>
-                    <%= form.text_field :material,:value=>@studies.material %>
+                    <%= form.text_field :material,:value=>@studies.material , :placeholder => "学習に使用する教材を決めよう！"%>
                 </div>
                 <div class="form-group">
                     <%= form.label :period ,'学習完了日' ,:class => 'label-study'%>
