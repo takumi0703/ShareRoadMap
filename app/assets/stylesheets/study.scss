@@ -73,6 +73,18 @@ $sp: 480px;  // スマホ
     }
 }
 
+.icons {
+    text-align: right;
+}
+.check {
+    font-size: 28px;
+}
+.completed {
+    color: green;
+}
+.complete {
+    color: rgb(224, 36, 94);
+}
 /* StudyCreateForm ================================ */
 .f-studies {
     width: 100%;
@@ -120,7 +132,7 @@ input[type="date"] {
 .study-content{
     width: 100%;
     .study-text {
-        font-size: 15px;
+        font-size: 18px;
     }
     .study-numbers {
         text-align: center;

@@ -13,6 +13,8 @@ Rails
     get 'user/road/:id' => 'user#roadshow'
 
     post 'study/create' => 'study#create'
+    post 'study/:id/completed_create' => 'study#completed_create', as: 'completed_create'
+    post 'study/:id/completed_destroy' => 'study#completed_destroy', as: 'completed_destroy'
     post 'study/:id/update' => 'study#update'
     post 'study/:id/destroy' => 'study#destroy'
     resources :user, only: [:new,:show,:edit]

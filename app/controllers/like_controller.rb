@@ -3,6 +3,7 @@ class LikeController < ApplicationController
     study = Study.find_by(id: params[:study_id])
     like = @current_user.likes.build(study_id: params[:study_id])
     like.save
+    flash[:success] = 'いいねしました！'
     redirect_to("/user/road/#{study.user_id}")
   end
 
