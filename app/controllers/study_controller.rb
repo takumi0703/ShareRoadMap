@@ -21,7 +21,7 @@ class StudyController < ApplicationController
   def completed_create
     @study = Study.find(params[:id])
     completed = @study.update(completed: @current_user.id)
-    flash[:success] = 'コンプリートおめでとう！!'
+    flash[:success] = '達成おめでとう！!'
     redirect_to("/user/road/#{@study.user_id}")
   end
 
