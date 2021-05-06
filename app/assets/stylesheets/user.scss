@@ -315,8 +315,8 @@ header {
   }
 }
 .u-contents {
-  border-left: 1px solid $r-shadow-border;
-  border-right: 1px solid $r-shadow-border;
+  border-left: 8px solid $r-shadow-border;
+  border-right: 8px solid $r-shadow-border;
   margin-top: 60px;
   max-width: 750px;
   @include sp {
@@ -334,8 +334,8 @@ header {
   display: flex;
   width: 100%;
   margin: 5px;
-  border-bottom: 2px double $r-shadow-border;
-  padding: 30px 10px;
+  border-bottom: 5px solid $r-shadow-border;
+  padding: 25px 10px;
   &-right {
     display: block;
   }

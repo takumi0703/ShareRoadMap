@@ -42,29 +42,41 @@ $sp: 480px;  // スマホ
 
 /* comment-index ================================ */
 .comment-container {
-  border-left: 1px solid rgba(104, 21, 18, 0.1);
-  border-right: 1px solid rgba(104, 21, 18, 0.1);
+  border-left: 8px solid $r-shadow-border;
+  border-right: 8px solid $r-shadow-border;
   margin-top: 60px;
 }
 
 .comment-contents {
   width: 100%;
   display: flex;
-  border-top: 1px double rgba(104, 21, 18, 0.1);
-  border-bottom: 1px double rgba(104, 21, 18, 0.1);
+  border-top: 1px double  $r-shadow-border;
+  border-bottom: 1px double  $r-shadow-border;
   padding: 20px 0px;
+
 }
 .comment-content {
-  border: 1px solid $r-shadow-border;
+  border: 5px solid $r-shadow-border;
   border-radius: 20px;
   margin-right: 50px;
 }
+.comment-user {
+  display: flex;
+}
+.comment-user-name {
+  display: flex;
+  align-items: center;
+}
 .comment-index-title {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 .comment_text_content {
-  border: 1px solid $r-shadow-border;
+  border-radius: 10px;
+  border: 5px solid $r-shadow-border;
   height: 100px;
   color: #000;
+}
+.link-color {
+  color: rgb(68, 68, 68);
 }

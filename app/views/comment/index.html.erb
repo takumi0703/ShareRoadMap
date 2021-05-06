@@ -4,28 +4,39 @@
         <% @comments.each do |comment|  %>
         <div class="comment-contents">
             <div class="col-md-8 ">
-                <p><%= comment.user.name%>さんがコメントしました</p>
-                <%= link_to comment_show_path(comment.id) do %>
+                <div class="comment-user">
+                    <%if  comment.user.image_icon? %>
+                        <img src="<%= comment.user.image_icon.url %>" class="u-image" alt="ユーザーアイコン">
+                    <% else %>
+                        <%= image_tag '/assets/default.jpeg' ,class:"u-image", :alt => 'ユーザーアイコン' %>
+                    <% end %>
+                    <%= link_to user_path(comment.user),class:"link-color comment-user-name" do %>
+                        <p><%= comment.user.name%>さんがコメントしました</p>
+                    <% end %>
+                </div>
+                <%= link_to comment_show_path(comment.id),class:"link-color" do %>
                     <p class="comment_text_content"><%= comment.comment_content %></p>
                 <% end %>
             </div>
             <div class="col-md-4 comment-content">
+                <%= link_to "/user/road/#{comment.user.id}",class:"link-color" do %>
                     <% @user.each do |user|%>
                     <% if user.id == comment.study.user_id %>
-                        <p><%= user.name %> さんの学習内容</p>
+                        <p ><%= user.name %> さんの学習内容</p>
                     <% end %>
                     <% end %>
                     <p class="study-text">学習内容：<%= comment.study.content  %> </p>
                     <% if comment.study.material.empty? %>
-                        <p class="study-text">"学習教材：未定"</p>
+                        <p class="study-text">学習教材：未定</p>
                     <% else %>
                     <p class="study-text">学習教材：<%= comment.study.material %></p>
                     <% end %>
                     <% if comment.study.period.nil? %>
-                        <p class="study-text">"学習完了日：未定"</p>
+                        <p class="study-text">学習完了日：未定</p>
                     <% else %>
                         <p class="study-text">学習完了日：<%= comment.study.period %>まで</p>
                     <% end %>
+                <% end %>
             </div>
         </div>
         <% end %>
