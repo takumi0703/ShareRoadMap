@@ -15,16 +15,13 @@
     <header>
       <% if @current_user %>
         <div class="login-hd">
-        <%= link_to("ShareRoadMap","/",class:"logo") %>
+        <%= link_to("ShareRoadMap","/user/road/#{@current_user.id}",class:"logo") %>
             <ul class="nav justify-content-end">
-                <li class="nav-item">
-                  <%= link_to("コメント一覧",comment_index_path,class:"nav-text") %>
-                </li>
                 <li class="nav-item">
                   <%= link_to(@current_user.name,user_path(@current_user),class:"nav-text") %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to("ロードマップ","/user/road/#{@current_user.id}",class:"nav-text") %>
+                  <%= link_to("コメント一覧",comment_index_path,class:"nav-text") %>
                 </li>
                 <li class="nav-item">
                 <%= link_to("ユーザー一覧", user_index_path,class:"nav-text") %>
@@ -36,7 +33,7 @@
         </div>
       <% else %>
       <div class="logout-hd">
-        <%= link_to("ShareroadMap","/",class:"logo") %>
+        <%= link_to("ShareroadMap",new_user_path,class:"logo") %>
         <ul class="nav justify-content-end">
             <li class="nav-item">
               <%= link_to("新規登録", new_user_path) %>
