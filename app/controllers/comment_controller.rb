@@ -1,5 +1,6 @@
 class CommentController < ApplicationController
-
+  before_action :autheniticate_user, { only: [:new,:edit,:update,:destroy] }
+  before_action :not_set_current_user_study, { only: [:edit] }
   def new
     @comment = Comment.new
     @study = Study.find(params[:study_id])
