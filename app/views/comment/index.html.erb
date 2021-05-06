@@ -1,31 +1,31 @@
 <div class="container">
-    <div class="row">
+    <div class="row comment-container">
         <h1 class="comment-index-title">コメント一覧</h1>
         <% @comments.each do |comment|  %>
-            <div class="col-md-4">
-                <div class="study-contents">
-                <% @user.each do |user|%>
-                <% if user.id == comment.study.user_id %>
-                    <p><%= user.name %> さんの学習内容</p>
-                <% end %>
-                <% end %>
-                <p class="study-text">学習内容：<%= comment.study.content  %> </p>
-                <% if comment.study.material.empty? %>
-                    <p class="study-text">"学習教材：未定"</p>
-                <% else %>
-                <p class="study-text">学習教材：<%= comment.study.material %></p>
-                <% end %>
-                <% if comment.study.period.nil? %>
-                    <p class="study-text">"学習完了日：未定"</p>
-                <% else %>
-                    <p class="study-text">学習完了日：<%= comment.study.period %>まで</p>
-                <% end %>
-                </div>
-            </div>
-            <div class="col-md-8">
+        <div class="comment-contents">
+            <div class="col-md-8 ">
                 <p><%= comment.user.name%>さんがコメントしました</p>
                 <p><%= comment.comment_content %></p>
             </div>
+            <div class="col-md-4 comment-content">
+                    <% @user.each do |user|%>
+                    <% if user.id == comment.study.user_id %>
+                        <p><%= user.name %> さんの学習内容</p>
+                    <% end %>
+                    <% end %>
+                    <p class="study-text">学習内容：<%= comment.study.content  %> </p>
+                    <% if comment.study.material.empty? %>
+                        <p class="study-text">"学習教材：未定"</p>
+                    <% else %>
+                    <p class="study-text">学習教材：<%= comment.study.material %></p>
+                    <% end %>
+                    <% if comment.study.period.nil? %>
+                        <p class="study-text">"学習完了日：未定"</p>
+                    <% else %>
+                        <p class="study-text">学習完了日：<%= comment.study.period %>まで</p>
+                    <% end %>
+            </div>
+        </div>
         <% end %>
     </div>
 </div>

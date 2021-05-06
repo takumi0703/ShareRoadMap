@@ -41,7 +41,26 @@ $sp: 480px;  // スマホ
 }
 
 /* comment-index ================================ */
-.comment-index-title {
-    width: 100%;
-    margin-top: 60px;
+.comment-container {
+  border-left: 1px solid rgba(104, 21, 18, 0.1);
+  border-right: 1px solid rgba(104, 21, 18, 0.1);
+  margin-top: 60px;
 }
+
+.comment-contents {
+  width: 100%;
+  display: flex;
+  border-top: 1px double rgba(104, 21, 18, 0.1);
+  border-bottom: 1px double rgba(104, 21, 18, 0.1);
+  padding: 20px 0px;
+}
+.comment-content {
+  border: 1px solid $r-shadow-border;
+  border-radius: 20px;
+  margin-right: 50px;
+}
+.comment-index-title {
+    text-align: center;
+    width: 100%;
+}
+
