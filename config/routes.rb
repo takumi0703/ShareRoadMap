@@ -20,6 +20,8 @@ Rails
     resources :user, only: [:new,:show,:edit]
     resources :study, only: [:new,:edit] do
       resources :like ,only: [:create,:destroy]
+      resources :comment ,only: [:new,:create]
     end
+    get 'comment/index' => 'comment#index'
     resources :guest_sessions, only: [:create]
   end

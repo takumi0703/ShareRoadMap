@@ -20,6 +20,7 @@
                         </div>
                     <% end %>
                     <div class="icons">
+                        <%= link_to( "コメント","/study/#{study.id}/comment/new",class:"btn btn-primary study-edit-btn ") %>
                         <% if study.liked_by?(@current_user) %>
                             <%= link_to study_like_path(study.id),method: :delete,class:"like_btn" do %>
                                 <i class="far fa-heart liked"></i>

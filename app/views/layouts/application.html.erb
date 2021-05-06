@@ -18,6 +18,9 @@
         <%= link_to("ShareRoadMap","/",class:"logo") %>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
+                  <%= link_to("コメント一覧",comment_index_path,class:"nav-text") %>
+                </li>
+                <li class="nav-item">
                   <%= link_to(@current_user.name,user_path(@current_user),class:"nav-text") %>
                 </li>
                 <li class="nav-item">

@@ -1,2 +1,13 @@
-<h1>Comment#new</h1>
-<p>Find me in app/views/comment/new.html.erb</p>
+<div class="container">
+    <div class="row">
+        <%= form_with  url: "/study/#{@study.id}/comment",class: "f-studies" do |form| %>
+            <div class="f-study comment-form">
+                <div class="form-group">
+                    <%= form.label :comment_content ,'コメントする！',:class => 'comment-title'%>
+                    <%= form.text_area :comment_content,:value=>@comment.comment_content, :placeholder => "ロードマップに対してコメントを送ってみよう！",:class => 'comment-area'%>
+                </div>
+                <%= form.submit "作成" ,:class => 'study-btn'%>
+            </div>
+        <% end %>
+    </div>
+</div>
