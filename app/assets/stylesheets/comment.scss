@@ -63,4 +63,7 @@ $sp: 480px;  // スマホ
     text-align: center;
     width: 100%;
 }
-
+.comment_text_content {
+  border: 1px solid $r-shadow-border;
+  height: 100px;
+}
