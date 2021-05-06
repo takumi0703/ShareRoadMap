@@ -3,4 +3,5 @@ class Comment < ApplicationRecord
 
   belongs_to :user
   belongs_to :study
+  scope :order_desc, -> { order(id: :desc) }
 end

@@ -5,7 +5,7 @@ class Study < ApplicationRecord
   validates :user_id, presence: true
   has_many :likes
   has_many :comments
-  scope :sorted, -> { order(id: :asc) }
+  scope :order_asc, -> { order(id: :asc) }
 
   def liked_by?(user)
     likes.where(user_id: user.id).exists?

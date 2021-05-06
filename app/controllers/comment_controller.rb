@@ -18,7 +18,7 @@ class CommentController < ApplicationController
   end
 
   def index
-    @comments = Comment.all
+    @comments = Comment.all.order_desc
     @user = User.all
   end
 

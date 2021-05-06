@@ -75,7 +75,7 @@ class UserController < ApplicationController
 
   def roadshow
     @user = User.find(params[:id])
-    @studies = Study.where(user_id: @user).sorted
+    @studies = Study.where(user_id: @user).order_asc
   end
 
   private
