@@ -95,14 +95,20 @@ header {
   font-size: 24px;
   margin-bottom: 0;
   padding-top: 5px;
-  @include sp {
+  @include tab {
     font-size: 13px;
+  }
+  @include sp {
+    font-size: 11px;
   }
 }
 .nav-item {
   padding: 5px 10px 0 0;
-  @include sp {
+  @include tab {
     font-size: 12px;
+  }
+  @include sp {
+    font-size: 8px;
     padding-right: 5px;
   }
 }
