@@ -37,7 +37,8 @@ class CommentController < ApplicationController
       flash[:success] = 'コメントを編集しました！'
       redirect_to(comment_index_path)
     else
-      render(comment_edit_path(@current_user.id))
+      flash[:alert] = 'コメントに不備があります'
+      redirect_to(comment_edit_path(@comment.id))
     end
   end
   def destroy
