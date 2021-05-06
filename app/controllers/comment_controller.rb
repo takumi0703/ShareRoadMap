@@ -3,7 +3,7 @@ class CommentController < ApplicationController
   before_action :not_set_current_user_study, { only: [:edit] }
   def new
     @comment = Comment.new
-    @study = Study.find(params[:study_id])
+    @study = Study.find(params[:id])
   end
 
   def create
@@ -12,7 +12,8 @@ class CommentController < ApplicationController
       flash[:success] = 'コメントを投稿しました！'
       redirect_to(comment_index_path)
     else
-      render(comment_new_path)
+      flash[:alert] = 'コメントに不備があります'
+      redirect_to(comment_new_path(@comment.study_id))
     end
   end
 

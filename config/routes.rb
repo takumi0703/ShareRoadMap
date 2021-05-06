@@ -20,9 +20,10 @@ Rails
     resources :user, only: [:new,:show,:edit]
     resources :study, only: [:new,:edit] do
       resources :like ,only: [:create,:destroy]
-      resources :comment ,only: [:new,:create]
+      resources :comment ,only: [:create]
     end
     get 'comment/index' => 'comment#index'
+    get 'comment/:id/new' => 'comment#new',as: 'comment_new'
     get 'comment/:id' => 'comment#show',as: 'comment_show'
     get 'comment/:id/edit' => 'comment#edit',as: 'comment_edit'
     post 'comment/:id/update' => 'comment#update',as: 'comment_update'
