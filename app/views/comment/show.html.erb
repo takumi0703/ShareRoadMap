@@ -1,11 +1,20 @@
 <div class="container user-edit-form">
     <div class="row">
-        <h3>コメント詳細</h3>
-    <div class="f-study">
-        <%= @comment.user.name%> <br>
-        <%= @comment.comment_content %>
+        <h1 class="comment-show-title">コメント詳細</h1>
+    <div class="comment-show-contents">
+        <div class="comment-show-user">
+            <div class="comment-show-icon">
+                <%if  @comment.user.image_icon? %>
+                    <img src="<%= @comment.user.image_icon.url %>" class="u-image" alt="ユーザーアイコン">
+                <% else %>
+                    <%= image_tag '/assets/default.jpeg' ,class:"u-image", :alt => 'ユーザーアイコン' %>
+                <% end %>
+            </div>
+            <h3 class="commment-show-user-name"><%= @comment.user.name%></h3>
+        </div>
+        <h3 class="comment-show-content"><%= @comment.comment_content %></h3>
     <% if @current_user.id == @comment.user.id%>
-        <div class="study-edit-btns">
+        <div class="study-edit-btns comment-show-btns">
             <%= link_to( "編集",comment_edit_path(@comment.id) ,class:"btn btn-primary study-edit-btn ") %>
             <%= link_to( "削除",comment_destroy_path(@comment.id) ,method: :post,class:"btn btn-primary study-edit-btn ") %>
         </div>

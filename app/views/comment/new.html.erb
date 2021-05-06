@@ -4,7 +4,7 @@
             <div class="f-study comment-form">
                 <div class="form-group">
                     <%= form.label :comment_content ,'コメントする！',:class => 'comment-title'%>
-                    <%= form.text_area :comment_content,:value=>@comment.comment_content, :placeholder => "ロードマップに対してコメントを送ってみよう！",:class => 'comment-area'%>
+                    <%= form.text_area :comment_content,:value=>@comment.comment_content, :placeholder => "ロードマップや学習に対してコメントを送ってみよう！(140文字以内)",:class => 'comment-area'%>
                 </div>
                 <%= form.submit "作成" ,:class => 'study-btn'%>
             </div>

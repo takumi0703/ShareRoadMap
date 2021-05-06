@@ -52,6 +52,15 @@ class ApplicationController < ActionController::Base
       redirect_to("/user/road/#{@study.user_id}")
     end
   end
+  #ログインユーザーとコメントのstudy_idが異なる場合
+  def not_set_current_user_comment
+    @comment = Comment.find(params[:id])
+    if @comment.user_id != @current_user.id
+      flash[:alert] = 'ログインユーザーのみ操作できるよ'
+      redirect_to(comment_index_path)
+    end
+  end
+
 
 
 end

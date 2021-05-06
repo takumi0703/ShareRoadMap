@@ -3,8 +3,8 @@
         <%= form_with url:comment_update_path(@comment.id) do |form| %>
             <div class=" comment-form">
                 <div class="form-group">
-                    <%= form.label :comment_content ,'コメント編集',:class => 'comment-title'%>
-                    <%= form.text_area :comment_content, :value=>@comment.comment_content,:class => 'comment-area' %>
+                    <%= form.label :comment_content ,'コメント編集',:class => 'comment-show-title'%>
+                    <%= form.text_area :comment_content, :value=>@comment.comment_content,:class => 'comment-show-content' %>
                 </div>
                 <%= form.submit "保存" ,:class => 'btn btn-primary'%>
             </div>

@@ -80,3 +80,30 @@ $sp: 480px;  // スマホ
 .link-color {
   color: rgb(68, 68, 68);
 }
+/* comment-show ================================ */
+.comment-show {
+  &-title {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    padding-bottom: 30px;
+  }
+  &-user-name {
+    font-size: 20px;
+  }
+  &-user {
+    display: flex;
+    align-items: center;
+  }
+  &-content {
+    border: 3px solid $r-shadow-border;
+    border-radius: 20px;
+    padding: 30px;
+    width: 400px;
+    height: 300px;
+    font-size: 16px;
+  }
+  &-btns {
+    justify-content: flex-end;
+  }
+}
