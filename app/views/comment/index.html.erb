@@ -5,7 +5,9 @@
         <div class="comment-contents">
             <div class="col-md-8 ">
                 <p><%= comment.user.name%>さんがコメントしました</p>
-                <p class="comment_text_content"><%= comment.comment_content %></p>
+                <%= link_to comment_show_path(comment.id) do %>
+                    <p class="comment_text_content"><%= comment.comment_content %></p>
+                <% end %>
             </div>
             <div class="col-md-4 comment-content">
                     <% @user.each do |user|%>

@@ -23,5 +23,9 @@ Rails
       resources :comment ,only: [:new,:create]
     end
     get 'comment/index' => 'comment#index'
+    get 'comment/:id' => 'comment#show',as: 'comment_show'
+    get 'comment/:id/edit' => 'comment#edit',as: 'comment_edit'
+    post 'comment/:id/update' => 'comment#update',as: 'comment_update'
+    post 'comment/:id/destroy' => 'comment#destroy',as: 'comment_destroy'
     resources :guest_sessions, only: [:create]
   end

@@ -1,11 +1,4 @@
 class CommentController < ApplicationController
-  def index
-    @comments = Comment.all
-    @user = User.all
-  end
-
-  def show
-  end
 
   def new
     @comment = Comment.new
@@ -22,11 +15,39 @@ class CommentController < ApplicationController
     end
   end
 
+  def index
+    @comments = Comment.all
+    @user = User.all
+  end
+
+  def show
+    @comment = Comment.find(params[:id])
+  end
+
   def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
+    if @comment.save
+      flash[:success] = 'コメントを編集しました！'
+      redirect_to(comment_index_path)
+    else
+      render(comment_edit_path(@current_user.id))
+    end
+  end
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      flash[:success] = 'コメントを削除しました！'
+      redirect_to(comment_index_path)
+    end
   end
 
   private
-  def comment_params
-    params.permit(:comment_content,:study_id)
-  end
+    def comment_params
+      params.permit(:comment_content,:study_id)
+    end
 end

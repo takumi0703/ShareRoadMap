@@ -1,2 +1,15 @@
-<h1>Comment#show</h1>
-<p>Find me in app/views/comment/show.html.erb</p>
+<div class="container user-edit-form">
+    <div class="row">
+        <h3>コメント詳細</h3>
+    <div class="f-study">
+        <%= @comment.user.name%> <br>
+        <%= @comment.comment_content %>
+    <% if @current_user.id == @comment.user.id%>
+        <div class="study-edit-btns">
+            <%= link_to( "編集",comment_edit_path(@comment.id) ,class:"btn btn-primary study-edit-btn ") %>
+            <%= link_to( "削除",comment_destroy_path(@comment.id) ,method: :post,class:"btn btn-primary study-edit-btn ") %>
+        </div>
+    <% end %>
+    </div>
+    </div>
+</div>

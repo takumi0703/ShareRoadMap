@@ -1,2 +1,13 @@
-<h1>Comment#edit</h1>
-<p>Find me in app/views/comment/edit.html.erb</p>
+<div class="container user-edit-form">
+    <div class="row">
+        <%= form_with url:comment_update_path(@comment.id) do |form| %>
+            <div class=" comment-form">
+                <div class="form-group">
+                    <%= form.label :comment_content ,'コメント編集',:class => 'comment-title'%>
+                    <%= form.text_area :comment_content, :value=>@comment.comment_content,:class => 'comment-area' %>
+                </div>
+                <%= form.submit "保存" ,:class => 'btn btn-primary'%>
+            </div>
+        <% end %>
+    </div>
+</div>
