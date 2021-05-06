@@ -42,7 +42,6 @@ class UserController < ApplicationController
       @users = @q.result(distinct: true)
   end
 
-  def about; end
 
   def show
     @user = User.find(params[:id])
