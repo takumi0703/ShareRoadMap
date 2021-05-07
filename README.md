@@ -3,9 +3,9 @@
 ### SNS型の学習ロードマップ共有アプリです。  
 学習ロードマップを作成・共有し、ユーザー同士のロードマップを確認できるアプリケーションです。
 ### ●新規登録ページ
-<img width="1434" alt="ShareRoadMapの画像" src="https://user-images.githubusercontent.com/61904132/113531310-60523280-9603-11eb-96e0-d892d3d4495a.png">
+<img width="1434" alt="ShareRoadMapの画像" src="https://user-images.githubusercontent.com/61904132/113531310-60523280-9603-11eb-96e0-d892d3d4495a.png">. 
 ### ●学習ロードマップページ
-<img width="1241" alt="学習ロードマップの画像" src="https://user-images.githubusercontent.com/61904132/117477433-f7126600-af98-11eb-8646-4af02d110612.png">
+<img width="1241" alt="学習ロードマップの画像" src="https://user-images.githubusercontent.com/61904132/117477433-f7126600-af98-11eb-8646-4af02d110612.png">. 
 ### ●コメント一覧
 <img width="1238" alt="コメント一覧" src="https://user-images.githubusercontent.com/61904132/117477579-1e693300-af99-11eb-8ccc-f4199d5ec05a.png">
 
@@ -60,7 +60,7 @@ Ruby on Rails 6.1.3
 ## ユーザー一覧
 右上の「ユーザー一覧」で利用しているユーザーが確認できます。  
 「ユーザー名」「目標」をクリックすればそのユーザーの詳細やロードマップを確認する事ができます。
-# 使用gem
+# 使用したgem
 gem 'rails-i18n'. 
 gem 'carrierwave'. 
 gem 'fog-aws'. 
