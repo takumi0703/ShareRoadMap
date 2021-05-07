@@ -1,6 +1,7 @@
 class CommentController < ApplicationController
   before_action :autheniticate_user, { only: %i[new edit update destroy] }
   before_action :not_set_current_user_comment, { only: [:edit] }
+  before_action :set_comment, { only: %i[show edit update destroy] }
   def new
     @comment = Comment.new
     @study = Study.find(params[:id])
@@ -22,16 +23,11 @@ class CommentController < ApplicationController
     @user = User.all
   end
 
-  def show
-    @comment = Comment.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @comment = Comment.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @comment = Comment.find(params[:id])
     @comment.update(comment_params)
     if @comment.save
       flash[:success] = 'コメントを編集しました！'
@@ -43,7 +39,6 @@ class CommentController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
     if @comment.destroy
       flash[:success] = 'コメントを削除しました！'
       redirect_to(comment_index_path)
@@ -51,6 +46,10 @@ class CommentController < ApplicationController
   end
 
   private
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
   def comment_params
     params.permit(:comment_content, :study_id)
