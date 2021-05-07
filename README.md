@@ -1,7 +1,7 @@
 # [ShareRoadMap](https://shareroadmap.herokuapp.com/)
 
 <img width="1434" alt="ShareRoadMapの画像" src="https://user-images.githubusercontent.com/61904132/113531310-60523280-9603-11eb-96e0-d892d3d4495a.png">
-
+<img width="1241" alt="スクリーンショット 2021-05-08 0 58 38" src="https://user-images.githubusercontent.com/61904132/117477433-f7126600-af98-11eb-8646-4af02d110612.png">
 # 概要
 #### SNS型の学習ロードマップ共有アプリです。  
 学習ロードマップを作成・共有し、ユーザー同士のロードマップを確認できるアプリケーションです。
