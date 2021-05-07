@@ -61,6 +61,17 @@ Ruby on Rails 6.1.3
 ## ユーザー一覧
 右上の「ユーザー一覧」で利用しているユーザーが確認できます。  
 「ユーザー名」「目標」をクリックすればそのユーザーの詳細やロードマップを確認する事ができます。
-
+#使用したgem
+gem 'rails-i18n'. 
+gem 'carrierwave'. 
+gem 'fog-aws'. 
+gem 'mini_magick'. 
+gem 'byebug'. 
+gem 'factory_bot_rails'. 
+gem 'rspec-rails'.  
+gem 'selenium-webdriver'. 
+gem 'rubocop'. 
+gem "bullet". 
+gem 'ransack'. 
 
 
