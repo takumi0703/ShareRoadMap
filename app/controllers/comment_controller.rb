@@ -19,7 +19,7 @@ class CommentController < ApplicationController
   end
 
   def index
-    @comments = Comment.all.order_desc
+    @comments = Comment.all.order_desc.includes(:user,:study)
     @user = User.all
   end
 
