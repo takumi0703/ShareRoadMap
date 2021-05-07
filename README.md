@@ -1,14 +1,14 @@
 # [ShareRoadMap](https://shareroadmap.herokuapp.com/)
+# 概要
+### SNS型の学習ロードマップ共有アプリです。  
+学習ロードマップを作成・共有し、ユーザー同士のロードマップを確認できるアプリケーションです。
+
 ### ●新規登録ページ
 <img width="1434" alt="ShareRoadMapの画像" src="https://user-images.githubusercontent.com/61904132/113531310-60523280-9603-11eb-96e0-d892d3d4495a.png">
 ### ●学習ロードマップページ
 <img width="1241" alt="学習ロードマップの画像" src="https://user-images.githubusercontent.com/61904132/117477433-f7126600-af98-11eb-8646-4af02d110612.png">
 ### ●コメント一覧
 <img width="1238" alt="コメント一覧" src="https://user-images.githubusercontent.com/61904132/117477579-1e693300-af99-11eb-8ccc-f4199d5ec05a.png">
-
-# 概要
-#### SNS型の学習ロードマップ共有アプリです。  
-学習ロードマップを作成・共有し、ユーザー同士のロードマップを確認できるアプリケーションです。
 
 # ShareRoadMapを開発した理由
 私自身プログラミング学習をしてみて、「明確な目標設定」と「正しい学習ロードマップの作成」がとても大切だと思いました。  
