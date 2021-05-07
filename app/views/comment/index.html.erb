@@ -19,7 +19,7 @@
                 <% end %>
             </div>
             <div class="col-md-4 comment-content">
-                <%= link_to "/user/road/#{comment.user.id}",class:"link-color" do %>
+                <%= link_to "/user/road/#{comment.study.user_id}",class:"link-color" do %>
                     <% @user.each do |user|%>
                     <% if user.id == comment.study.user_id %>
                         <p ><%= user.name %> さんの学習内容</p>
