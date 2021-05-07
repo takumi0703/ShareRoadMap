@@ -3,6 +3,7 @@
 class UserController < ApplicationController
   before_action :not_logout_user, { only: %i[login_form new] }
   before_action :not_set_current_user, { only: [:edit] }
+  before_action :set_user, { only: %i[show edit update roadshow] }
 
   def new
     @user = User.new
@@ -41,16 +42,11 @@ class UserController < ApplicationController
     @users = @q.result(distinct: true)
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @user = User.find(params[:id])
     @user.update(user_params)
     @user.image_icon = params[:image_icon] if params[:image_icon]
     if @user.save
@@ -69,11 +65,14 @@ class UserController < ApplicationController
   end
 
   def roadshow
-    @user = User.find(params[:id])
     @studies = Study.where(user_id: @user).order_asc
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.permit(:name, :email, :goal, :password, :image_icon)
