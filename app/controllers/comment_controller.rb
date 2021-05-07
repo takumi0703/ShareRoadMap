@@ -1,5 +1,5 @@
 class CommentController < ApplicationController
-  before_action :autheniticate_user, { only: [:new,:edit,:update,:destroy] }
+  before_action :autheniticate_user, { only: %i[new edit update destroy] }
   before_action :not_set_current_user_comment, { only: [:edit] }
   def new
     @comment = Comment.new
@@ -41,6 +41,7 @@ class CommentController < ApplicationController
       redirect_to(comment_edit_path(@comment.id))
     end
   end
+
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy
@@ -50,7 +51,8 @@ class CommentController < ApplicationController
   end
 
   private
-    def comment_params
-      params.permit(:comment_content,:study_id)
-    end
+
+  def comment_params
+    params.permit(:comment_content, :study_id)
+  end
 end

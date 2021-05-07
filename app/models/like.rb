@@ -1,5 +1,4 @@
 class Like < ApplicationRecord
-    belongs_to :user
-    belongs_to :study
-
+  belongs_to :user
+  belongs_to :study
 end

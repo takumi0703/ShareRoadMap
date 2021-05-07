@@ -19,8 +19,7 @@ class UserController < ApplicationController
     end
   end
 
-  def login_form
-  end
+  def login_form; end
 
   def login
     @user = User.find_by(email: params[:email])
@@ -38,10 +37,9 @@ class UserController < ApplicationController
 
   def index
     @users = User.all
-      @q = User.ransack(params[:q])
-      @users = @q.result(distinct: true)
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
-
 
   def show
     @user = User.find(params[:id])
@@ -54,9 +52,7 @@ class UserController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    if params[:image_icon]
-      @user.image_icon = params[:image_icon]
-    end
+    @user.image_icon = params[:image_icon] if params[:image_icon]
     if @user.save
       flash[:success] = 'ユーザー情報を編集できました！'
       redirect_to(user_path(@user))
@@ -80,6 +76,6 @@ class UserController < ApplicationController
   private
 
   def user_params
-    params.permit(:name, :email, :goal, :password,:image_icon)
+    params.permit(:name, :email, :goal, :password, :image_icon)
   end
 end

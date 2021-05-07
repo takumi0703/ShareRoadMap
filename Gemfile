@@ -6,9 +6,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.3'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem 'rails', '~> 6.1.3'
 # 日本語エラー
 gem 'rails-i18n'
 # Use sqlite3 as the database for Active Record
@@ -34,8 +34,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'rb-readline'
 gem 'pry-rails'
+gem 'rb-readline'
 
 gem 'carrierwave'
 gem 'fog-aws'
@@ -69,5 +69,5 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'ransack'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

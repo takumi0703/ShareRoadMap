@@ -9,7 +9,7 @@ class LikeController < ApplicationController
 
   def destroy
     study = Study.find_by(id: params[:study_id])
-    like = Like.find_by(study_id: params[:study_id],user_id: @current_user.id)
+    like = Like.find_by(study_id: params[:study_id], user_id: @current_user.id)
     like.delete
     redirect_to("/user/road/#{study.user_id}")
   end

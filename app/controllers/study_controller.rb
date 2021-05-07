@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class StudyController < ApplicationController
-  before_action :autheniticate_user, { only: [:new,:edit,:completed_create,:completed_destroy] }
+  before_action :autheniticate_user, { only: %i[new edit completed_create completed_destroy] }
   before_action :not_set_current_user_study, { only: [:edit] }
-  before_action :not_set_current_user_complete, { only: [:completed_create,:completed_destroy] }
+  before_action :not_set_current_user_complete, { only: %i[completed_create completed_destroy] }
   def new
     @studies = Study.new
   end
