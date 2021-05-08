@@ -1,6 +1,6 @@
 <div class="container road-container">
     <div class="row">
-        <%= render partial: 'goal'%>
+        <h3 class="g-text">目標は<%= goal_text(@user.goal) %> </h3>
         <% if @studies.empty? %>
             <div class="n-studies">
                 <h3 class="n-studies-title">ロードマップは未作成です</h3>

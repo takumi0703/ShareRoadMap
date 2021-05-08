@@ -1,13 +1,34 @@
 <div class="container">
   <div class="row user-show">
-    <div class="col-md-6 ">
-      <%= render partial: 'goal'%>
-      <%= link_to("ロードマップをみる","/user/road/#{@user.id}",class:"user-edit-btn btn btn-primary") %>
-    </div>
-    <div class="col-md-6">
+    <div class="col-md-4 ">
       <div class="user-content">
-        <%= render 'user_prof' %>
+          <%= render 'user_prof' %>
+        <h3 class="g-text">目標：<%= goal_text(@user.goal) %> </h3>
+        <%= link_to("ロードマップをみる","/user/road/#{@user.id}",class:"user-edit-btn btn btn-primary") %>
       </div>
+    </div>
+    <div class="col-md-8">
+    <h1 class="user-show-comment-title">届いたコメント</h1>
+      <% @comments.each do |comment|  %>
+        <div class="comment-contents user-show-comment-contents">
+              <div class="comment-user ">
+                  <%if  comment.user.image_icon? %>
+                      <img src="<%= comment.user.image_icon.url %>" class="u-image" alt="ユーザーアイコン">
+                  <% else %>
+                      <%= image_tag '/assets/default.jpeg' ,class:"u-image", :alt => 'ユーザーアイコン' %>
+                  <% end %>
+                  <%= link_to user_path(comment.user),class:"link-color comment-user-name" do %>
+                      <p><%= comment.user.name%>さんがコメントしました</p>
+                  <% end %>
+              </div>
+              <%= link_to "/user/road/#{@user.id}",class:"link-color" do %>
+                <p class="study-text">学習内容：<%= comment.study.content  %> に対してのコメント</p>
+              <% end %>
+              <%= link_to comment_show_path(comment.id),class:"link-color" do %>
+                  <p class="comment_text_content"><%= comment.comment_content %></p>
+              <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

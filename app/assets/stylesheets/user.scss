@@ -197,7 +197,6 @@ header {
 .user-show {
  align-items: center;
  text-align: center;
- height: 80vh;
  display: flex;
  justify-content: center;
  @include sp {
@@ -208,33 +207,52 @@ header {
    }
  }
 }
-@include sp {
-  .g-title {
-    margin-top: 40px;
-    font-size: 20px;
-  }
-  .g-text {
-    font-size: 20px;
+.g-text {
+  font-size: 20px;
+  @include sp {
+    font-size: 16px;
   }
 }
 
 .user-content {
-  margin-top: 40px;
-  border: 3px double $r-shadow;
-  padding: 10px 0px 70px 0px;
+  position: fixed;
+  top: 100px;
+  border: 8px solid $r-shadow-border;
+  padding: 10px 10px 30px;
+  @include tab {
+    position: static;
+    margin-top: 50px;
+  }
+
 }
 .user-name {
   padding: 30px 0;
+  font-size: 24px;
 }
 .img-icon {
-  width: 250px;
-    border-radius: 50%;
-    height: 250px;
-    object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
     @include sp {
       width: 150px;
       height: 150px;
     }
+}
+.user-show-comment-title {
+  margin-top: 100px;
+  font-size: 32px;
+  margin-left: 60px;
+  @include tab {
+    margin-left: 0;
+  }
+}
+.user-show-comment-contents {
+  flex-direction: column;
+  margin-left: 60px;
+  @include tab {
+    margin: 0;
+  }
 }
 
 

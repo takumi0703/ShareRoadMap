@@ -42,7 +42,9 @@ class UserController < ApplicationController
     @users = @q.result(distinct: true)
   end
 
-  def show; end
+  def show
+    @comments = Comment.where(user_id: @current_user.id).order_desc.includes(:user,:study)
+  end
 
   def edit; end
 

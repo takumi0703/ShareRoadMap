@@ -3,7 +3,7 @@
 module UserHelper
   def goal_text(_user)
     if @user.goal.blank?
-      '目標はまだ決めていません！'
+      'まだ決めていません！'
     else
       @user.goal
     end
