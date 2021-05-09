@@ -88,6 +88,14 @@ $sp: 480px;  // スマホ
 .comment-icon {
     font-size: 20px;
 }
+.tag-icon {
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px;
+    background-color: $r-shadow;
+    font-size: 12px;
+    margin-right: 5px;
+}
 /* StudyCreateForm ================================ */
 .f-studies {
     width: 100%;
