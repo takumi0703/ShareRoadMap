@@ -2,7 +2,7 @@
     <div class="row ">
         <%= form_with url:"/study/#{@study.id}/update" , class: "f-studies" do |form| %>
             <div class="f-study">
-                <% @study.errors.full_messages.each do |message| %>   
+                <% @study.errors.full_messages.each do |message| %>
                     <%= message %>
                 <% end %>
                 <div class="form-group">
@@ -16,6 +16,10 @@
                 <div class="form-group">
                     <%= form.label :period ,'学習完了日' ,:class => 'label-study'%>
                     <%= form.date_field :period, :value=>@study.period %>
+                </div>
+                <div class="form-group">
+                    <%= form.label :tag_list ,'タグ',:class => 'label-study'%>
+                    <%= form.text_field :tag_list ,:value=> @study.tag_list.join(',') , :placeholder => "複数の場合、カンマ区切りで入力してください" %>
                 </div>
             </div>
             <div class="study-edit-btn">

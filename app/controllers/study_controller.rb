@@ -56,6 +56,6 @@ class StudyController < ApplicationController
   end
 
   def study_params
-    params.permit(:content, :material, :period).merge(user_id: @current_user.id)
+    params.permit(:content, :material, :period, :tag_list).merge(user_id: @current_user.id)
   end
 end

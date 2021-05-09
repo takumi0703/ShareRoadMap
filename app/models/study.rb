@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Study < ApplicationRecord
+  acts_as_taggable
   validates :content, presence: true
   validates :user_id, presence: true
   has_many :likes, dependent: :destroy

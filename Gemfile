@@ -72,3 +72,4 @@ end
 gem 'ransack'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem "bullet"
+gem 'acts-as-taggable-on', '~> 7.0'
