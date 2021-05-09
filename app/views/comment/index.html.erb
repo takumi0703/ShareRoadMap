@@ -36,6 +36,9 @@
                     <% else %>
                         <p class="study-text">学習完了日：<%= comment.study.period %>まで</p>
                     <% end %>
+                    <% comment.study.tag_list.each do |tag|%>
+                        <span class="tag-icon">#<%= tag %> </span>
+                    <% end %>
                 <% end %>
             </div>
         </div>
