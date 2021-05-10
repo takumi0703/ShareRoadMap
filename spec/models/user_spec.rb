@@ -38,16 +38,16 @@ RSpec.describe User, type: :model do
         before do
           User.create(
             name: 'test',
-            email: "test@example.com",
-            password: "test",
+            email: 'test@example.com',
+            password: 'test'
           )
         end
         context 'nameの値が重複する時' do
           it 'nameにエラーが含まれていること' do
             user = User.new(
               name: 'test',
-              email: "test1@example.com",
-              password: "test1",
+              email: 'test1@example.com',
+              password: 'test1'
             )
             user.valid?
             expect(user.errors[:name]).to include('はすでに存在します')
@@ -57,8 +57,8 @@ RSpec.describe User, type: :model do
           it 'emailにエラーが含まれていること' do
             user = User.new(
               name: 'test1',
-              email: "test@example.com",
-              password: "test1",
+              email: 'test@example.com',
+              password: 'test1'
             )
             user.valid?
             expect(user.errors[:email]).to include('はすでに存在します')
