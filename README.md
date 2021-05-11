@@ -20,8 +20,8 @@
 https://shareroadmap.herokuapp.com/
 
 # 開発環境
-ruby 2.6.3
-Ruby on Rails 6.1.3
+ruby 2.6.3  
+Ruby on Rails 6.1.3.2
 
 # ER図
   <img width="1186" alt="ER図" src="https://user-images.githubusercontent.com/61904132/117387697-4d918d00-af24-11eb-8c1f-bc2bd5c4e24c.png">
