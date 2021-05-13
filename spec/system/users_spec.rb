@@ -7,11 +7,7 @@ RSpec.describe 'Users', type: :system do
         end
         context '入力が正しい時' do
             it '登録時のフラッシュが表示されていること' do
-            visit '/'
-            fill_in "name",with: @user.name
-            fill_in "email", with: @user.email
-            fill_in "password", with: @user.password
-            click_button "登録"
+            sign_in_as @user
             expect(page).to have_content '新規登録が完了しました！'
             end
         end
@@ -20,12 +16,9 @@ RSpec.describe 'Users', type: :system do
         context '入力が正しい時' do
             before do
                 @user = FactoryBot.create(:user)
+                login_in_as @user
             end
             it 'ログインのフラッシュが表示されていること' do
-                visit login_path
-                fill_in "email", with: @user.email
-                fill_in "password", with: @user.password
-                click_button "ログイン"
                 expect(page).to have_content 'ログインしました'
             end
         end
@@ -33,10 +26,7 @@ RSpec.describe 'Users', type: :system do
     describe 'ユーザー編集' do
         before do
             @user = FactoryBot.create(:user)
-            visit login_path
-            fill_in "email", with: @user.email
-            fill_in "password", with: @user.password
-            click_button "ログイン"
+            login_in_as @user
             visit edit_user_path(@user)
         end
         context '入力が正しい時' do
