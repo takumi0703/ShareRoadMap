@@ -9,7 +9,7 @@ RSpec.describe 'Studies', type: :system do
     end
     describe '新規投稿' do
         context '正しい値が複数投稿された場合' do
-            it '投稿数が増加していること' do
+            it '投稿数が増えていること' do
                 expect {
                     click_link '追加'
                     fill_in "content", with:"テスト１"
@@ -33,6 +33,22 @@ RSpec.describe 'Studies', type: :system do
             it '削除完了のフラッシュが表示されていること' do
                 click_link '削除'
                 expect(page).to have_content '学習を削除しました！'
+            end
+        end
+    end
+    describe '学習完了チェック' do
+        before do
+            find('.fa-check-circle ').click
+        end
+        context '完了がクリックされた時' do
+            it '完了済みのCSSで適用されていること' do
+                expect(page).to have_css '.completed'
+            end
+        end
+        context '完了解除がクリックされた時' do
+            it '未完了のCSSで適用されていること' do
+                find('.fa-check-circle ').click
+                expect(page).to have_css '.complete'
             end
         end
     end
