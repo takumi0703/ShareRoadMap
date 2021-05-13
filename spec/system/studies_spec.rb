@@ -4,14 +4,8 @@ RSpec.describe 'Studies', type: :system do
     before do
         @user = FactoryBot.create(:user)
         visit login_path
-        fill_in "email", with: @user.email
-        fill_in "password", with: @user.password
-        click_button "ログイン"
-        visit '/study/new'
-        fill_in "content", with: "テスト"
-        fill_in "material", with: "テスト"
-        fill_in "period", with: "002021-04-01"
-        click_button '作成'
+        login_in_as @user
+        study_create @study
     end
     describe '新規投稿' do
         context '正しい値が複数投稿された場合' do
