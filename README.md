@@ -47,6 +47,7 @@ Ruby on Rails 6.1.3.2
 ・bulletを導入し、N+1問題を解消。  
 ・変数名からデータの内容が予測しやすいようにわかりやすく命名する  
 ・変更箇所が明確にわかるようなコミットメッセージ  
+・Rspecをテストコードを書きました
 # 使い方
 ### 登録
 新規登録ボタンでユーザー登録ができます。  
@@ -76,9 +77,12 @@ gem 'pry-rails'
 gem 'rb-readline'  
 gem 'factory_bot_rails'  
 gem 'rspec-rails'  
+gem 'capybara'  
+gem 'launchy'  
 gem 'selenium-webdriver'  
 gem 'rubocop'  
 gem "bullet"  
 gem 'ransack'   
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on'  
+
 
