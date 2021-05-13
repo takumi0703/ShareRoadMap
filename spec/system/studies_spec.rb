@@ -49,6 +49,3 @@ RSpec.describe 'Studies', type: :system do
         end
     end
 end
-#追加ボタンを押して新しい学習内容が追加されていること
-#削除ボタンで内容が削除されていること
-#編集が正常に保存されていること
