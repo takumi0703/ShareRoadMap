@@ -4,9 +4,7 @@ RSpec.describe 'Likes', type: :system do
     before do
         @user = FactoryBot.create(:user)
         visit login_path
-        fill_in "email", with: @user.email
-        fill_in "password", with: @user.password
-        click_button "ログイン"
+        login_in_as @user
     end
     describe 'いいね機能' do
         before do
