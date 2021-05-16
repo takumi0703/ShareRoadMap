@@ -43,7 +43,7 @@ class UserController < ApplicationController
   end
 
   def show
-    @comments = Comment.where(user_id: @current_user.id).order_desc.includes(:user, :study)
+    @comments = Comment.where(user_id: @current_user.id).order_desc.preload(:user, :study)
   end
 
   def edit; end
@@ -67,7 +67,7 @@ class UserController < ApplicationController
   end
 
   def roadshow
-    @studies = Study.where(user_id: @user).order_asc.includes(:taggings)
+    @studies = Study.where(user_id: @user).order_asc.eager_load(:taggings)
   end
 
   private

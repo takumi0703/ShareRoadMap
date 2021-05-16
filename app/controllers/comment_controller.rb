@@ -19,7 +19,7 @@ class CommentController < ApplicationController
   end
 
   def index
-    @comments = Comment.all.order_desc.includes(:user, { study: :taggings })
+    @comments = Comment.all.order_desc.preload(:user, { study: :taggings })
     @user = User.all
   end
 
