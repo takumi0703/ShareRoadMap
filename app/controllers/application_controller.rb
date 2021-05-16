@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   # ログインユーザーとuser.idが違う場合のアクセス制限
   def not_set_current_user
     @user = User.find_by(id: params[:id])
-    if @user.id != @current_user.id
+    unless @user.id == @current_user.id
       flash[:alert] = 'ログアウトして下さい'
       redirect_to(user_path(@current_user))
     end
@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
   # ログインユーザーとstudy.user_idが違う場合のアクセス制限
   def not_set_current_user_study
     @study = Study.find_by(id: params[:id])
-    if @study.user_id != @current_user.id
+    unless @study.user_id == @current_user.id
       flash[:alert] = 'ログアウトして下さい'
       redirect_to(user_path(@current_user))
     end
@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
   # ログインユーザーとstudy.user_idが違う場合の警告
   def not_set_current_user_complete
     @study = Study.find_by(id: params[:id])
-    if @study.user_id != @current_user.id
+    unless @study.user_id == @current_user.id
       flash[:alert] = 'ログインユーザーのみ操作できるよ'
       redirect_to("/user/road/#{@study.user_id}")
     end
@@ -56,7 +56,7 @@ class ApplicationController < ActionController::Base
   # ログインユーザーとコメントのstudy_idが異なる場合
   def not_set_current_user_comment
     @comment = Comment.find(params[:id])
-    if @comment.user_id != @current_user.id
+    unless @comment.user_id == @current_user.id
       flash[:alert] = 'ログインユーザーのみ操作できるよ'
       redirect_to(comment_index_path)
     end
