@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Comments', type: :system do
   before do
-    @user = FactoryBot.create(:user)
+    @user = create(:user)
     visit login_path
     login_in_as @user
     visit '/study/new'

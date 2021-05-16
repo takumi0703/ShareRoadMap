@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :system do
   describe '新規登録' do
     before do
-      @user = FactoryBot.build(:user)
+      @user = build(:user)
     end
     context '入力が正しい時' do
       it '登録時のフラッシュが表示されていること' do
@@ -14,7 +14,7 @@ RSpec.describe 'Users', type: :system do
   end
   describe 'ログイン' do
     before do
-      @user = FactoryBot.create(:user)
+      @user = create(:user)
       login_in_as @user
     end
     context '入力が正しい時' do
