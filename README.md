@@ -84,5 +84,6 @@ gem 'rubocop' 1.14.0
 gem "bullet" 6.1.4  
 gem 'ransack'  2.4.2  
 gem 'acts-as-taggable-on' 7.0.0
-
+gem 'better_errors'  
+gem 'binding_of_caller'
 
