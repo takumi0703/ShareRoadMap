@@ -15,7 +15,7 @@ gem 'rails-i18n'
 gem 'pg', group: :production
 gem 'sqlite3', group: %i[development test]
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
