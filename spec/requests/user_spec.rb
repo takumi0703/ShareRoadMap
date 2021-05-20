@@ -16,12 +16,6 @@ RSpec.describe 'Users', type: :request do
         expect(response).to redirect_to login_path
       end
     end
-    context 'ログイン時' do
-      # it '正常にレスポンスを返すこと' do
-      #   get user_index_path
-      #   expect(response).to have_http_status(200)
-      # end
-    end
   end
   describe '#show' do
     context '未ログイン' do
