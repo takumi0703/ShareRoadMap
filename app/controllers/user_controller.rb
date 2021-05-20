@@ -43,7 +43,8 @@ class UserController < ApplicationController
   end
 
   def show
-    @comments = Comment.where(user_id: @current_user.id).order_desc.preload(:user, :study)
+    @study = Study.find_by(user_id: @user.id)
+    @comments = Comment.all.order_desc.preload(:user, :study)
   end
 
   def edit; end
