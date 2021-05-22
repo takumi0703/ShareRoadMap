@@ -44,7 +44,7 @@ class UserController < ApplicationController
 
   def show
     @study = Study.find_by(user_id: @user.id)
-    @comments = Comment.all.order_desc.preload(:user, :study)
+    @comments = Comment.all.order_desc.eager_load(:user, :study)
   end
 
   def edit; end
