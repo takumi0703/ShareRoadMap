@@ -9,28 +9,30 @@
     </div>
     <div class="col-md-6">
     <h1 class="user-show-comment-title">届いたコメント</h1>
+    <% if @study %>
       <% @comments.each do |comment|  %>
-    <% if comment.study.user_id == @study.user_id %>
-        <div class="comment-contents user-show-comment-contents">
-              <div class="comment-user ">
-                  <%if  comment.user.image_icon? %>
-                      <img src="<%= comment.user.image_icon.url %>" class="u-image" alt="ユーザーアイコン">
-                  <% else %>
-                      <%= image_tag '/assets/default.jpeg' ,class:"u-image", :alt => 'ユーザーアイコン' %>
-                  <% end %>
-                  <%= link_to user_path(comment.user),class:"link-color comment-user-name" do %>
-                      <p><%= comment.user.name%>さんがコメントしました</p>
-                  <% end %>
-              </div>
-              <%= link_to "/user/road/#{@user.id}",class:"link-color" do %>
-                <p class="study-text">学習内容：<%= comment.study.content  %> に対してのコメント</p>
-              <% end %>
-              <%= link_to comment_show_path(comment.id),class:"link-color" do %>
-                  <p class="comment_text_content"><%= comment.comment_content %></p>
-              <% end %>
-        </div>
-    <% end %>
+        <% if comment.study.user_id == @study.user_id %>
+          <div class="comment-contents user-show-comment-contents">
+                <div class="comment-user ">
+                    <%if  comment.user.image_icon? %>
+                        <img src="<%= comment.user.image_icon.url %>" class="u-image" alt="ユーザーアイコン">
+                    <% else %>
+                        <%= image_tag '/assets/default.jpeg' ,class:"u-image", :alt => 'ユーザーアイコン' %>
+                    <% end %>
+                    <%= link_to user_path(comment.user),class:"link-color comment-user-name" do %>
+                        <p><%= comment.user.name%>さんがコメントしました</p>
+                    <% end %>
+                </div>
+                <%= link_to "/user/road/#{@user.id}",class:"link-color" do %>
+                  <p class="study-text">学習内容：<%= comment.study.content  %> に対してのコメント</p>
+                <% end %>
+                <%= link_to comment_show_path(comment.id),class:"link-color" do %>
+                    <p class="comment_text_content"><%= comment.comment_content %></p>
+                <% end %>
+          </div>
+        <% end %>
       <% end %>
+    <% end %>
     </div>
   </div>
 </div>

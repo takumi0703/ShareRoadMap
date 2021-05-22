@@ -10,7 +10,7 @@ Rails
     get 'user/index' => 'user#index'
     post 'user/create' => 'user#create'
     post 'user/:id/update' => 'user#update'
-    get 'user/road/:id' => 'user#roadshow'
+    get 'user/road/:id' => 'user#roadshow',as:'user_road'
 
     post 'study/create' => 'study#create'
     post 'study/:id/completed_create' => 'study#completed_create', as: 'completed_create'
