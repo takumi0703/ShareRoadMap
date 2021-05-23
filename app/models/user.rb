@@ -13,7 +13,7 @@ class User < ApplicationRecord
               with: VALID_EMAIL_REGEX
             },
             uniqueness: true
-  validates :password, presence: true, length: { minimum: 6 }, on: :creat
+  validates :password, presence: true, length: { minimum: 6 }
 
   mount_uploader :image_icon, ImageUploader
 end

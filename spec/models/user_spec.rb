@@ -4,13 +4,22 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe '新規登録' do
-    context '全ての値が正しく入力されている時' do
-      it '有効な状態であること' do
-        user = build(:user, :user1)
-        expect(user).to be_valid
+    describe '正常値' do
+      context '正しく入力されている時' do
+        it '有効な状態であること' do
+          user = build(:user, :user1)
+          expect(user).to be_valid
+        end
+      end
+      context 'passwordが6文字の時' do
+        it '無効な状態であること' do
+          user = build(:user, :user1, password: 'a'*6 )
+          user.valid?
+          expect(user).to be_valid
+        end
       end
     end
-    context '不正な値' do
+    describe '不正な値' do
       context 'nameが空の時' do
         it 'nameにエラーが含まれていること' do
           user = build(:user, :user1, name: nil)
@@ -30,6 +39,13 @@ RSpec.describe User, type: :model do
           user = build(:user, :user1, password: nil)
           user.valid?
           expect(user.errors[:password]).to include('を入力してください')
+        end
+      end
+      context 'passwordが5文字の時' do
+        it '無効な状態であること' do
+          user = build(:user, :user1, password: 'a'*5 )
+          user.valid?
+          expect(user).to_not be_valid
         end
       end
       context '値が重複する時' do
