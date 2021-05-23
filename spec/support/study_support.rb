@@ -3,7 +3,7 @@ module StudySupport
     visit '/study/new'
     fill_in 'content', with: 'テスト'
     fill_in 'material', with: 'テスト'
-    fill_in 'period', with: '002021-04-01'
+    fill_in 'period', with: '002021-04-02'
     click_button '作成'
   end
 end
