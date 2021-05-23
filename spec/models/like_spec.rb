@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Like, type: :model do
   describe 'like新規作成' do
     before do
-      create(:user)
+      create(:user,:user1)
       create(:study)
     end
     context '正常な値の時' do
