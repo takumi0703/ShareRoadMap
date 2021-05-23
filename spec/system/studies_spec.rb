@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'Studies', type: :system do
   let(:user) { create(:user, :user1) }
   before do
-    # @user = create(:user)
     visit login_path
     login_in_as user
     study_create @study
