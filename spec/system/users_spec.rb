@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
   describe '新規登録' do
-    let(:user) { build(:user,:user1) }
+    let(:user) { build(:user, :user1) }
     context '入力が正しい時' do
       it '登録時のフラッシュが表示されていること' do
         sign_in_as(user)
@@ -11,8 +11,8 @@ RSpec.describe 'Users', type: :system do
     end
   end
   describe 'ログイン' do
-    let(:user)      { create(:user,:user1) }
-    let(:next_user) { build(:user,:user2) }
+    let(:user)      { create(:user, :user1) }
+    let(:next_user) { build(:user, :user2) }
     let(:study)     { create(:study) }
     let(:comment)   { create(:comment) }
     before do
@@ -45,7 +45,7 @@ RSpec.describe 'Users', type: :system do
       context 'コメントが届いたとき' do
         it 'ユーザーに届いたコメントのみが表示されていること' do
           visit logout_path
-          next_user = create(:user,:user2)
+          next_user = create(:user, :user2)
           login_in_as(next_user)
           study_create study
           visit user_road_path(next_user)

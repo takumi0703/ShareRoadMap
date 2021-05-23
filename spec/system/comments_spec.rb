@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Comments', type: :system do
-  let(:user) { create(:user,:user1) }
+  let(:user) { create(:user, :user1) }
   before do
     visit login_path
     login_in_as user
