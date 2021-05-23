@@ -7,11 +7,6 @@ FactoryBot.define do
       sequence(:email) { 'test@example.com' }
       password { 'password' }
     end
-    trait :already_name do
-      name { 'username' }
-      sequence(:email) { 'test1@example.com' }
-      password { 'password' }
-    end
     trait :already_email do
       name { 'username1' }
       sequence(:email) { 'test@example.com' }

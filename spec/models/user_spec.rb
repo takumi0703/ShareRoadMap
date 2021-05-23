@@ -50,13 +50,6 @@ RSpec.describe User, type: :model do
       end
       context '値が重複する時' do
         let!(:user) {create(:user,:user1)}
-        context 'nameの値が重複する時' do
-          let(:already_name) {build(:user,:already_name)}
-          it 'nameにエラーが含まれていること' do
-            already_name.valid?
-            expect(already_name.errors[:name]).to include('はすでに存在します')
-          end
-        end
         context 'emailの値が重複する時' do
           let(:already_email) {build(:user,:already_email)}
           it 'emailにエラーが含まれていること' do
