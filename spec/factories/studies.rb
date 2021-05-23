@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :study do
-    user_id { |n| "1+#{n}" }
-    content { |n| "テスト#{n}" }
-    material { |n| "テスト#{n}" }
+    user_id { '1' }
+    content { '学習内容' }
+    material { '学習教材' }
     period { '002021-04-01' }
   end
 end
