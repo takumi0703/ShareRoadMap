@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_24_022257) do
+ActiveRecord::Schema.define(version: 2021_05_24_121958) do
 
   create_table "comments", force: :cascade do |t|
     t.string "comment_content"
@@ -39,6 +39,21 @@ ActiveRecord::Schema.define(version: 2021_05_24_022257) do
     t.integer "completed"
   end
 
+  create_table "tag_maps", force: :cascade do |t|
+    t.integer "study_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["study_id"], name: "index_tag_maps_on_study_id"
+    t.index ["tag_id"], name: "index_tag_maps_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -51,4 +66,6 @@ ActiveRecord::Schema.define(version: 2021_05_24_022257) do
 
   add_foreign_key "comments", "studies"
   add_foreign_key "comments", "users"
+  add_foreign_key "tag_maps", "studies"
+  add_foreign_key "tag_maps", "tags"
 end
