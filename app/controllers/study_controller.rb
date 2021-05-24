@@ -11,9 +11,9 @@ class StudyController < ApplicationController
 
   def create
     @studies = Study.new(study_params)
-    tag_list = params[:study][:tag_name].split(nil)#@studiesに関連したタグを取得、スペースで区切って配列化
+    tag_list = params[:tag_name].split(nil)#@studiesに関連したタグを取得、スペースで区切って配列化
     if @studies.save
-      @studies.save_tag(tag_list)
+      @studies.save_studies(tag_list)
       flash[:success] = '学習を追加しました！'
       redirect_to("/user/road/#{@studies.user_id}")
     else

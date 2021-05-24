@@ -20,6 +20,9 @@
                         </div>
                     <% end %>
                     <div class="icons">
+                        <% @tag_list.each do |list|%>
+                            <span><%= list.tag_name %></span>
+                        <% end %>
                         <%= link_to comment_new_path(study.id),class:"link-color " do %>
                             <i class="far fa-comment comment-icon"></i>
                         <% end %>
