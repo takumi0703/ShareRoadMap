@@ -36,8 +36,6 @@ Ruby on Rails 6.1.3.2
 ### ●検索機能
 ・目標やユーザー名に関する検索が可能
 ### ●レスポンシブデザイン
-### ●タグ機能
-・学習投稿時にタグを追加できる
 
 # こだわった機能と技術
 ・検索機能を作り、気になる目標やユーザーを簡単に探せるようにしました。  
@@ -83,7 +81,6 @@ gem 'selenium-webdriver' 3.142.7
 gem 'rubocop' 1.14.0  
 gem "bullet" 6.1.4  
 gem 'ransack'  2.4.2  
-gem 'acts-as-taggable-on' 7.0.0
 gem 'better_errors'  
 gem 'binding_of_caller'
 
