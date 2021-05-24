@@ -1,4 +1,4 @@
- <h4 class="study-title"><%= @user.name %>さんのロードマップ</h4>
+ <%= link_to(  "#{@user.name}さんのロードマップ" , user_path(@user), class: "study-title link-color") %>
 <div class="row studies">
     <% @studies.each.with_index(1) do |study,i| %>
             <div class="d-flex flex-row col-lg-4 study-contents">
@@ -20,9 +20,6 @@
                         </div>
                     <% end %>
                     <div class="icons">
-                        <% study.tag_list.each do |tag|%>
-                            <span class="tag-icon">#<%= tag %> </span>
-                        <% end %>
                         <%= link_to comment_new_path(study.id),class:"link-color " do %>
                             <i class="far fa-comment comment-icon"></i>
                         <% end %>

@@ -68,7 +68,7 @@ class UserController < ApplicationController
   end
 
   def roadshow
-    @studies = Study.where(user_id: @user).order_asc.eager_load(:taggings)
+    @studies = Study.where(user_id: @user).order_asc
   end
 
   private
