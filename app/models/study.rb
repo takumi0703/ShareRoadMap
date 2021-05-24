@@ -12,4 +12,26 @@ class Study < ApplicationRecord
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end
+
+  #編集する際に古いタグを削除する必要があるため、この処理が必要になる
+  def save_posts(sent_tags)
+    # 学習が投稿されたときにtag_nameが存在する場合、current_tagsに配列として全て代入される
+    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
+    # 投稿された時のタグを除いたタグをold_tagsとする
+    old_tags = current_tags - sent_tags
+    #現在存在するタグを除いた新しいタグをnew_tagsに代入
+    new_tags = sent_tags - current_tags
+
+      # 古いタグを削除
+      old_tags.each do |old_name|
+        self.tags.delete Tag.find_by(tag_name: old)
+      end
+
+      # 新しいタグをDBに保存
+      new_tags.each do |new_name|
+        post_tag = Tag.find_or_create_by(tag_name:new_name)
+        # 配列に保存
+        self.post_tags << new_post_tag
+      end
+  end
 end

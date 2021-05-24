@@ -69,6 +69,7 @@ class UserController < ApplicationController
 
   def roadshow
     @studies = Study.where(user_id: @user).order_asc
+    @tag_list = Tag.all
   end
 
   private
