@@ -1,4 +1,4 @@
- <h4 class="study-title"><%= @user.name %>さんのロードマップ</h4>
+ <%= link_to(  "#{@user.name}さんのロードマップ" , user_path(@user), class: "study-title link-color") %>
 <div class="row studies">
     <% @studies.each.with_index(1) do |study,i| %>
             <div class="d-flex flex-row col-lg-4 study-contents">
