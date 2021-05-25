@@ -20,7 +20,7 @@
                         </div>
                     <% end %>
                     <div class="icons">
-                        <% @tag_list.each do |list|%>
+                        <% study.tags.each do |list| %>
                             <span class="tag-icon"><%= list.tag_name %></span>
                         <% end %>
                         <%= link_to comment_new_path(study.id),class:"link-color " do %>
