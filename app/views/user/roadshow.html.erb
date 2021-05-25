@@ -32,7 +32,7 @@
                             <% end %>
                             <div class="icons">
                                 <% study.tags.each do |list| %>
-                                    <span class="tag-icon"><%= list.tag_name %></span>
+                                    <span class="tags"><%= list.tag_name %></span>
                                 <% end %>
                                 <%= link_to comment_new_path(study.id),class:"link-color " do %>
                                     <i class="far fa-comment comment-icon"></i>

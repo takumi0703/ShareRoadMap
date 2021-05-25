@@ -20,6 +20,11 @@ class StudyController < ApplicationController
       render('/study/new')
     end
   end
+  def index
+    @studies = Study.all.includes(:user)
+    @user = User.all
+    @tag_list = Tag.all
+  end
 
   def completed_create
     completed = @study.update(completed: @current_user.id)

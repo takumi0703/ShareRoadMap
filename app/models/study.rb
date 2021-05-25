@@ -3,6 +3,7 @@
 class Study < ApplicationRecord
   validates :content, presence: true
   validates :user_id, presence: true
+  belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :tag_maps, dependent: :destroy

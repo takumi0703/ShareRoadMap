@@ -166,6 +166,23 @@ input[type="date"] {
         border: 1px solid $r-shadow;
     }
 }
+/* StudyindexPage ================================ */
+.study-index-container {
+    margin-top: 100px;
+}
+.tags {
+    display: inline-block;
+    padding: 3px;
+    line-height: 1;
+    text-decoration: none;
+    color: $r-shadow;
+    background-color: #fff;
+    border: 1px solid $r-shadow;
+    border-radius: 7px;
+}
+
+
+
 /* StudyEditPage ================================ */
 .study-edit-btn {
     text-align: center;
