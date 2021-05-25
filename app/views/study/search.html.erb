@@ -1,5 +1,5 @@
 <div class="container study-index-container">
-        <h1>みんなの学習投稿一覧</h1>
+        <h2><%= @tag.tag_name %>の検索一覧</h2>
     <div class="row">
         <div class="col-md-8 study-index">
             <% @studies.each do |study| %>
@@ -26,9 +26,10 @@
             <h1>タグ一覧</h1>
             <% @tag_list.each do |list|%>
                 <%= link_to tag_study_path(tag_id: list.id),class:"link-color" do %>
-                    <span class="tags"><%= list.tag_name %></span>
+                    <span class="tags study-index-tags"><%= list.tag_name %></span>
                 <% end %>
-            <% end %>
+            <% end %> <br>
+            <%= link_to("みんなの学習投稿一覧に戻る",study_index_path, {class: "link-color"}) %>
         </div>
     </div>
 </div>
