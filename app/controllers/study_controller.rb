@@ -21,7 +21,7 @@ class StudyController < ApplicationController
     end
   end
   def index
-    @studies = Study.all.includes(:user)
+    @studies = Study.all.order_desc.includes(:user,:tag_maps,:tags)
     @user = User.all
     @tag_list = Tag.all
   end

@@ -14,6 +14,9 @@
                             <h4 class="study-text">
                                 <%= study_period(study) %>
                             </h4>
+                            <% study.tags.each do |list| %>
+                                    <span class="tags"><%= list.tag_name %></span>
+                            <% end %>
                         <% end %>
                     </div>
                 </div>

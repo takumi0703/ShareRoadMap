@@ -9,6 +9,7 @@ class Study < ApplicationRecord
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps#投稿に紐づけられたタグを取得することができる
   scope :order_asc, -> { order(id: :asc) }
+  scope :order_desc, -> { order(id: :desc) }
 
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
