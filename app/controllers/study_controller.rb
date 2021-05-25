@@ -25,6 +25,11 @@ class StudyController < ApplicationController
     @user = User.all
     @tag_list = Tag.all
   end
+  def search
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @studies = @tag.studies.all.includes(:user,:tag_maps,:tags)
+  end
 
   def completed_create
     completed = @study.update(completed: @current_user.id)
