@@ -9,7 +9,65 @@
                 <% end %>
             </div>
         <% else %>
-        <%= render partial:'study/study_index'%>
+        <%= link_to(  "#{@user.name}さんのロードマップ" , user_path(@user), class: "study-title link-color") %>
+        <div class="row studies">
+            <% @studies.each.with_index(1) do |study,i| %>
+                    <div class="d-flex flex-row col-lg-4 study-contents">
+                        <div class="study-content">
+                            <div class="study-numbers">
+                                <h4 class="study-text study-num"><%= i %></h4>
+                            </div>
+                            <h4 class="study-text">学習内容：<%= study.content  %> </h4>
+                            <h4 class="study-text">
+                                <%= study_material(study) %>
+                            </h4>
+                            <h4 class="study-text">
+                                <%= study_period(study) %>
+                            </h4>
+                            <% if current_user?(@user.id)%>
+                                <div class="study-edit-btns">
+                                    <%= link_to( "編集",edit_study_path(study) ,class:"btn btn-primary study-edit-btn ") %>
+                                    <%= link_to("削除" ,"/study/#{study.id}/destroy",class:"btn btn-primary study-edit-btn",method: :post)%>
+                                </div>
+                            <% end %>
+                            <div class="icons">
+                                <% study.tags.each do |list| %>
+                                    <span class="tags"><%= list.tag_name %></span>
+                                <% end %>
+                                <%= link_to comment_new_path(study.id),class:"link-color " do %>
+                                    <i class="far fa-comment comment-icon"></i>
+                                <% end %>
+                                <% if study.liked_by?(@current_user) %>
+                                    <%= link_to study_like_path(study.id),method: :delete,class:"like_btn" do %>
+                                        <i class="far fa-heart liked"></i>
+                                        <span><%= study.likes.count %></span>
+                                    <% end %>
+                                <% else %>
+                                    <%=link_to "/study/#{study.id}/like", method: :post ,class:"like_btn" do %>
+                                        <i class="fas fa-heart"></i>
+                                        <span><%= study.likes.count %></span>
+                                    <% end %>
+                                <% end %>
+                                <% if  study.completed.nil? %>
+                                    <%= link_to completed_create_path(study) , method: :post  do %>
+                                        <i class="far fa-check-circle check complete"></i>
+                                    <% end %>
+                                <% else %>
+                                    <%= link_to completed_destroy_path(study) , method: :post do %>
+                                    <i class="far fa-check-circle  check completed"></i>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+            <% end %>
+        </div>
+        <% if  current_user?(@user.id) %>
+            <div class="add-study-btn">
+                <%= link_to( "追加","/study/new",class:"btn btn-primary study-edit-btn" ) %>
+            </div>
+        <% end %>
+        <%= link_to("学習投稿一覧",study_index_path, {class: "link-color btn btn-primary "}) %>
         <% end %>
     </div>
 </div>

@@ -11,8 +11,11 @@ Rails
     post 'user/create' => 'user#create'
     post 'user/:id/update' => 'user#update'
     get 'user/road/:id' => 'user#roadshow',as:'user_road'
-
     post 'study/create' => 'study#create'
+    get 'study/index' => 'study#index'
+    resources :tags do
+      get 'study', to: 'study#search'
+    end
     post 'study/:id/completed_create' => 'study#completed_create', as: 'completed_create'
     post 'study/:id/completed_destroy' => 'study#completed_destroy', as: 'completed_destroy'
     post 'study/:id/update' => 'study#update'

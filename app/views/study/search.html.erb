@@ -1,0 +1,35 @@
+<div class="container study-index-container">
+        <h2><%= @tag.tag_name %>の検索一覧</h2>
+    <div class="row">
+        <div class="col-md-8 study-index">
+            <% @studies.each do |study| %>
+                <div class="study-contents">
+                    <div class="study-content">
+                        <%= link_to( "#{study.user.name}さんの学習内容" ,user_path(study.user_id), {class: "link-color"}) %>
+                        <%= link_to user_road_path(study.user_id),class:"link-color" do %>
+                            <h4 class="study-text">学習内容：<%= study.content  %> </h4>
+                            <h4 class="study-text">
+                                <%= study_material(study) %>
+                            </h4>
+                            <h4 class="study-text">
+                                <%= study_period(study) %>
+                            </h4>
+                            <% study.tags.each do |list| %>
+                                    <span class="tags"><%= list.tag_name %></span>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="col-md-4">
+            <h1>タグ一覧</h1>
+            <% @tag_list.each do |list|%>
+                <%= link_to tag_study_path(tag_id: list.id),class:"link-color" do %>
+                    <span class="tags study-index-tags"><%= list.tag_name %></span>
+                <% end %>
+            <% end %> <br>
+            <%= link_to("学習投稿一覧に戻る",study_index_path, {class: "link-color"}) %>
+        </div>
+    </div>
+</div>
