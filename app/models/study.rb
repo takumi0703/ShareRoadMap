@@ -31,7 +31,7 @@ class Study < ApplicationRecord
 
       # 新しいタグをDBに保存
       new_tags.each do |new|
-        new_study_tag = Tag.find_or_create_by(tag_name: new)
+        new_study_tag = Tag.find_or_create_by(tag_name: new.downcase)
         # 配列に保存
         self.tags << new_study_tag
       end
