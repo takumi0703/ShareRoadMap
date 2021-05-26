@@ -5,6 +5,7 @@ class StudyController < ApplicationController
   before_action :not_set_current_user_study, { only: [:edit] }
   before_action :not_set_current_user_complete, { only: %i[completed_create completed_destroy] }
   before_action :set_study, { only: %i[completed_create completed_destroy edit update destroy] }
+  before_action :set_tag, { only: %i[index search] }
   def new
     @studies = Study.new
   end
@@ -21,12 +22,10 @@ class StudyController < ApplicationController
     end
   end
   def index
-    @studies = Study.all.order_desc.includes(:user,:tag_maps,:tags)
     @user = User.all
-    @tag_list = Tag.all
+    @studies = Study.all.order_desc.includes(:user,:tag_maps,:tags)
   end
   def search
-    @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
     @studies = @tag.studies.all.includes(:user,:tag_maps,:tags)
   end
@@ -67,11 +66,14 @@ class StudyController < ApplicationController
 
   private
 
-  def set_study
-    @study = Study.find(params[:id])
-  end
+    def set_tag
+      @tag_list = Tag.all
+    end
+    def set_study
+      @study = Study.find(params[:id])
+    end
 
-  def study_params
-    params.permit(:content, :material, :period, :tag_list).merge(user_id: @current_user.id)
-  end
+    def study_params
+      params.permit(:content, :material, :period, :tag_list).merge(user_id: @current_user.id)
+    end
 end
