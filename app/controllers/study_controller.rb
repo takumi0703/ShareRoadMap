@@ -42,7 +42,9 @@ class StudyController < ApplicationController
     redirect_to("/user/road/#{@study.user_id}")
   end
 
-  def edit; end
+  def edit
+    @tag_list = @study.tags.pluck(:tag_name).join(",")
+  end
 
   def update
     @study.update(study_params)
