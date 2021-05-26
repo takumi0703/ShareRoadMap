@@ -23,11 +23,11 @@ class StudyController < ApplicationController
   end
   def index
     @user = User.all
-    @studies = Study.all.order_desc.includes(:user,:tag_maps,:tags)
+    @studies = Study.all.order_desc.preload(:user,:tag_maps,:tags)
   end
   def search
     @tag = Tag.find(params[:tag_id])
-    @studies = @tag.studies.all.includes(:user,:tag_maps,:tags)
+    @studies = @tag.studies.all.preload(:user,:tag_maps,:tags)
   end
 
   def completed_create
