@@ -12,7 +12,7 @@ class StudyController < ApplicationController
 
   def create
     @studies = Study.new(study_params)
-    tag_list = params[:tag_name].split(nil)#@studiesに関連したタグを取得、スペースで区切って配列化
+    tag_list = params[:tag_name].split(/[[:blank:]]+/)#@studiesに関連したタグを取得、スペースで区切って配列化
     if @studies.save
       @studies.save_studies(tag_list)
       flash[:success] = '学習を追加しました！'
@@ -42,12 +42,12 @@ class StudyController < ApplicationController
   end
 
   def edit
-    @tag_list = @study.tags.pluck(:tag_name).join(",")
+    @tag_list = @study.tags.pluck(:tag_name)
   end
 
   def update
     @study.update(study_params)
-    tag_list = params[:tag_name].split(nil)
+    tag_list = params[:tag_name].split(/[[:blank:]]+/)
     if @study.save
       @study.save_studies(tag_list)
       flash[:success] = '学習を編集しました！'
