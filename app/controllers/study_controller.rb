@@ -46,7 +46,9 @@ class StudyController < ApplicationController
 
   def update
     @study.update(study_params)
+    tag_list = params[:tag_name].split(nil)
     if @study.save
+      @study.save_studies(tag_list)
       flash[:success] = '学習を編集しました！'
       redirect_to("/user/road/#{@study.user_id}")
     else
