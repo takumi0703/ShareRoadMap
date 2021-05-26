@@ -24,7 +24,7 @@ ruby 2.6.3
 Ruby on Rails 6.1.3.2
 
 # ER図
-  <img width="1186" alt="ER図" src="https://user-images.githubusercontent.com/61904132/117387697-4d918d00-af24-11eb-8c1f-bc2bd5c4e24c.png">
+  <img width="1043" alt="スクリーンショット 2021-05-26 16 08 34" src="https://user-images.githubusercontent.com/61904132/119662191-11d74c80-be6c-11eb-9304-780eaf060c52.png">
 
 # アプリケーションの機能一覧
 ### ●ユーザー機能
