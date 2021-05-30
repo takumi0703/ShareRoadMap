@@ -77,3 +77,4 @@ gem 'bullet'
 gem 'ransack'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem "chartkick"
+gem 'chartable'

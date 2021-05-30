@@ -69,6 +69,7 @@ class UserController < ApplicationController
 
   def roadshow
     @studies = Study.where(user_id: @user.id).order_asc.eager_load(:tag_maps,:tags)
+    @pie_chart = {'2014-04-01' => 20, '2014-04-02' => 50, '2014-04-03' => 30}
   end
 
   private
