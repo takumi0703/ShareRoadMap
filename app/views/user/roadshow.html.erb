@@ -69,6 +69,6 @@
         <% end %>
         <%= link_to("学習投稿一覧",study_index_path, {class: "link-color btn btn-primary "}) %>
         <% end %>
-       <%= pie_chart @pie_chart %>
+        <%= pie_chart @studies.group(:completed).count , title: "学習達成度",colors: ["#CC0000", "#EEEEEE"] %>
     </div>
 </div>
