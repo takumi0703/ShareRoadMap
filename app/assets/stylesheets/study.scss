@@ -65,6 +65,10 @@ $sp: 480px;  // スマホ
         margin-right: 5px;
     }
 }
+.study_index_btn {
+    width: 50%;
+    margin: 20px auto!important;
+}
 
 .col-lg-4 {
     max-width: 30.333333%!important;
@@ -187,10 +191,15 @@ input[type="date"] {
 
 
 /* StudyEditPage ================================ */
-.study-edit-btn {
-    text-align: center;
+.study_add_btn {
+    width: 50%;
+    margin: auto!important;
+    a {
+        margin: auto;
+    }
     .edit-btn {
         width: 20%;
+        margin: auto;
         margin-top: 10px;
     }
 }
