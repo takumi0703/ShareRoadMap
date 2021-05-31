@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Like, type: :model do
   describe 'like新規作成' do
-    let!(:user) { create(:user,:user1) }
+    let!(:user) { create(:user, :user1) }
     let!(:study) { create(:study) }
     context '正常な値の時' do
       context '全ての値が正しく入力されている時' do

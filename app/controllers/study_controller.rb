@@ -12,7 +12,7 @@ class StudyController < ApplicationController
 
   def create
     @studies = Study.new(study_params)
-    tag_list = params[:tag_name].split(/[[:blank:]]+/)#@studiesに関連したタグを取得、スペースで区切って配列化
+    tag_list = params[:tag_name].split(/[[:blank:]]+/)
     if @studies.save
       @studies.save_studies(tag_list)
       flash[:success] = '学習を追加しました！'
@@ -21,13 +21,15 @@ class StudyController < ApplicationController
       render('/study/new')
     end
   end
+
   def index
     @user = User.all
-    @studies = Study.all.order_desc.preload(:user,:tag_maps,:tags)
+    @studies = Study.all.order_desc.preload(:user, :tag_maps, :tags)
   end
+
   def search
     @tag = Tag.find(params[:tag_id])
-    @studies = @tag.studies.all.preload(:user,:tag_maps,:tags)
+    @studies = @tag.studies.all.preload(:user, :tag_maps, :tags)
   end
 
   def completed_create
@@ -66,14 +68,15 @@ class StudyController < ApplicationController
 
   private
 
-    def set_tag
-      @tag_list = Tag.all
-    end
-    def set_study
-      @study = Study.find(params[:id])
-    end
+  def set_tag
+    @tag_list = Tag.all
+  end
 
-    def study_params
-      params.permit(:content, :material, :period, :tag_list).merge(user_id: @current_user.id)
-    end
+  def set_study
+    @study = Study.find(params[:id])
+  end
+
+  def study_params
+    params.permit(:content, :material, :period, :tag_list).merge(user_id: @current_user.id)
+  end
 end

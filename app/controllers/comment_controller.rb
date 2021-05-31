@@ -19,7 +19,7 @@ class CommentController < ApplicationController
   end
 
   def index
-    @comments = Comment.all.order_desc.preload(:user,:study)
+    @comments = Comment.all.order_desc.preload(:user, :study)
     @user = User.all
   end
 
