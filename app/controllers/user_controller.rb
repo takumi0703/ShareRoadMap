@@ -69,6 +69,20 @@ class UserController < ApplicationController
 
   def roadshow
     @studies = Study.where(user_id: @user.id).order_asc.eager_load(:tag_maps,:tags)
+    @array_completed = @studies.pluck(:completed)
+    @completed = completedCount(@array_completed)
+  end
+
+  def completedCount(array)
+    result = [["達成",0],["未学習(学習中)",0]]
+    array.each do |i|
+      if i == @current_user.id
+        result[0][1] += 1
+      else
+        result[1][1] += 1
+      end
+    end
+    return result
   end
 
   private
