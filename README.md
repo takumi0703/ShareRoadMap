@@ -6,7 +6,7 @@
 <img width="1434" alt="ShareRoadMapの画像" src="https://user-images.githubusercontent.com/61904132/113531310-60523280-9603-11eb-96e0-d892d3d4495a.png"> 
 
 ### ●学習ロードマップページ
-<img width="1241" alt="学習ロードマップの画像" src="https://user-images.githubusercontent.com/61904132/117477433-f7126600-af98-11eb-8646-4af02d110612.png">  
+<img width="1440" alt="スクリーンショット 2021-06-01 10 25 27" src="https://user-images.githubusercontent.com/61904132/120254002-c71e6000-c2c3-11eb-95b8-90675b449332.png">
 
 ### ●コメント一覧
 <img width="1238" alt="コメント一覧" src="https://user-images.githubusercontent.com/61904132/117477579-1e693300-af99-11eb-8ccc-f4199d5ec05a.png">
@@ -84,6 +84,7 @@ gem 'selenium-webdriver' 3.142.7
 gem 'rubocop' 1.14.0  
 gem "bullet" 6.1.4  
 gem 'ransack'  2.4.2  
-gem 'better_errors'  
-gem 'binding_of_caller'
+gem 'better_errors'2.9.1  
+gem 'binding_of_caller'1.0.0  
+gem 'chartkick'4.0.4  
 
