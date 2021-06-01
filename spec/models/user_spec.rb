@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
       end
       context 'passwordが6文字の時' do
         it '無効な状態であること' do
-          user = build(:user, :user1, password: 'a'*6 )
+          user = build(:user, :user1, password: 'a' * 6)
           user.valid?
           expect(user).to be_valid
         end
@@ -43,15 +43,15 @@ RSpec.describe User, type: :model do
       end
       context 'passwordが5文字の時' do
         it '無効な状態であること' do
-          user = build(:user, :user1, password: 'a'*5 )
+          user = build(:user, :user1, password: 'a' * 5)
           user.valid?
           expect(user).to_not be_valid
         end
       end
       context '値が重複する時' do
-        let!(:user) {create(:user,:user1)}
+        let!(:user) { create(:user, :user1) }
         context 'emailの値が重複する時' do
-          let(:already_email) {build(:user,:already_email)}
+          let(:already_email) { build(:user, :already_email) }
           it 'emailにエラーが含まれていること' do
             already_email.valid?
             expect(already_email.errors[:email]).to include('はすでに存在します')

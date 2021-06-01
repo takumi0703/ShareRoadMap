@@ -14,7 +14,7 @@ class User < ApplicationRecord
               with: VALID_EMAIL_REGEX
             },
             uniqueness: true
-  validates :password, presence: true, length: { minimum: 6 }, on: :create#新規登録のみ有効、削除すると、User#updateのimage_iconでエラー発生する
+  validates :password, presence: true, length: { minimum: 6 }, on: :create # 新規登録のみ有効、削除すると、User#updateのimage_iconでエラー発生する
 
   mount_uploader :image_icon, ImageUploader
 end
